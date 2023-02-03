@@ -16,7 +16,7 @@ const ColorThemes: Colors = {
     600: '#4A5568',
     700: '#2D3748',
     800: '#1A202C',
-    900: '#171923',
+    900: '#171923'
   },
   whiteAlpha: {
     50: 'rgba(255, 255, 255, 0.04)',
@@ -28,14 +28,14 @@ const ColorThemes: Colors = {
     600: 'rgba(255, 255, 255, 0.48)',
     700: 'rgba(255, 255, 255, 0.64)',
     800: 'rgba(255, 255, 255, 0.80)',
-    900: 'rgba(255, 255, 255, 0.92)',
+    900: 'rgba(255, 255, 255, 0.92)'
   },
   primary: '#2B6CB0',
   blue: '#3182CE',
   blueActive: '#2B6CB0',
   link: {
     text: '#4299E1',
-    active: '#3182CE',
+    active: '#3182CE'
   },
   heading: {
     shadow: 'rgb(43 108 176 / 40%) 0px 3px 3px',
@@ -43,12 +43,11 @@ const ColorThemes: Colors = {
   },
   card: {
     shadow: '0 1px 3px 0 rgba(0, 0, 0, 0.1),0 1px 2px 0 rgba(0, 0, 0, 0.06)',
-    active: '0 10px 15px -3px rgba(0, 0, 0, 0.1),0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-  },
-};
-
-export default ColorThemes;
-
-export {
-  DarkThemes, LightThemes
+    active:
+      '0 10px 15px -3px rgba(0, 0, 0, 0.1),0 4px 6px -2px rgba(0, 0, 0, 0.05)'
+  }
 }
+
+export default ColorThemes
+
+export { DarkThemes, LightThemes }

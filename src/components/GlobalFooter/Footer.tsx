@@ -25,29 +25,33 @@ const Footer = () => {
         <FooterNav2>
           <FooterNavList>
             <FooterNavItem>
-              <GreyLink href="/" target="_blank">Blog</GreyLink>
+              <GreyLink href="https://blog.bplink66.com" target="_blank">
+                Blog
+              </GreyLink>
             </FooterNavItem>
             <FooterNavItem>
-              <GreyLink href="/" target="_blank">Images</GreyLink>
+              <GreyLink href="https://images.bplink66.com" target="_blank">
+                Images
+              </GreyLink>
             </FooterNavItem>
             <FooterNavItem>
-              <GreyLink href="/" target="_blank">About me</GreyLink>
+              <GreyLink href="https://blog.bplink66.com/about" target="_blank">
+                About me
+              </GreyLink>
             </FooterNavItem>
           </FooterNavList>
         </FooterNav2>
         <FooterNav3>
           <FooterNavList>
             <FooterNavItem>
-              <GreyLink href="/" target="_blank">Github</GreyLink>
+              <GreyLink href="https://github.com/stydle" target="_blank">
+                Github
+              </GreyLink>
             </FooterNavItem>
             <FooterNavItem>
-              <GreyLink href="/" target="_blank">Twitter</GreyLink>
-            </FooterNavItem>
-            <FooterNavItem>
-              <GreyLink href="/" target="_blank">Email</GreyLink>
-            </FooterNavItem>
-            <FooterNavItem>
-              <GreyLink href="/" target="_blank">Rss</GreyLink>
+              <GreyLink href="https://twitter.com/?lang=en" target="_blank">
+                Twitter
+              </GreyLink>
             </FooterNavItem>
           </FooterNavList>
         </FooterNav3>
@@ -64,7 +68,7 @@ const Wrapper = styled.footer`
   background-color: var(--colors-secondaryBackground);
   padding: var(--spacing-6);
 
-  @media ${(p) => p.theme.BREAKPOINTS.mdAndSmaller} {
+  @media ${p => p.theme.BREAKPOINTS.mdAndSmaller} {
     padding-left: var(--spacing-3);
     padding-right: var(--spacing-3);
   }
@@ -76,15 +80,15 @@ const FooterGrid = styled(MaxWidthWrapper)`
   gap: var(--spacing-4);
   margin: 0 auto;
 
-  @media ${(p) => p.theme.BREAKPOINTS.mdAndLarger} {
+  @media ${p => p.theme.BREAKPOINTS.mdAndLarger} {
     display: grid;
     grid-template-areas:
-      "logo logo logo"
-      "nav1 nav2 nav3"
-      "legal legal legal";
+      'logo logo logo'
+      'nav1 nav2 nav3'
+      'legal legal legal';
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-`;
+`
 
 const FooterLogo = styled.div`
   width: 100%;
@@ -94,10 +98,10 @@ const FooterLogo = styled.div`
 `
 
 const GreyLink = styled(UnstyledLink)`
-  &:hover{
+  &:hover {
     color: var(--colors-text);
   }
-`;
+`
 
 const FooterDesktop = styled.p`
   margin: var(--spacing-1);
@@ -116,9 +120,9 @@ const FooterNavList = styled.ul`
   gap: var(--spacing-4);
   list-style: none;
   margin-left: 0;
-`;
+`
 
-const FooterNavItem = styled.li``;
+const FooterNavItem = styled.li``
 
 const FooterNav2 = styled.div`
   width: 100%;
@@ -140,4 +144,4 @@ const FooterLegal = styled.div`
   text-align: center;
 `
 
-export default  Footer;
+export default Footer

@@ -1,13 +1,13 @@
 import { ThemeColors } from '@/types/color-vars'
 
 const COLORS: ThemeColors = {
-  text: "var(--colors-gray-100)",
-  secondaryText: "var(--colors-gray-400)",
-  background: "var(--colors-gray-800)",
-  secondaryBackground: "rgb(1, 22, 39)",
-  border: "var(--colors-whiteAlpha-200)",
+  text: 'var(--colors-gray-100)',
+  secondaryText: 'var(--colors-gray-400)',
+  background: 'var(--colors-gray-800)',
+  secondaryBackground: 'rgb(1, 22, 39)',
+  border: 'var(--colors-whiteAlpha-200)',
   card: {
-    bg: 'var(--colors-gray-700)',
+    bg: 'var(--colors-gray-700)'
   },
   button: {
     gray: {
@@ -18,6 +18,6 @@ const COLORS: ThemeColors = {
   nav: {
     bg: 'var(--colors-whiteAlpha-300)'
   }
-};
+}
 
-export default COLORS;
+export default COLORS

@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export default styled.button<{
-  display?: string,
+  display?: string
 }>`
   display: ${props => props.display || 'block'};
   margin: 0;
@@ -12,7 +12,7 @@ export default styled.button<{
   background-color: transparent;
   transition: background 0.2s ease;
 
-  &:focus {
-    outline: 2px auto var(--colors-primary);
+  &:focus:not(.focus-visible) {
+    outline: none;
   }
-`;
+`

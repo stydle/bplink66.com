@@ -1,6 +1,6 @@
-import { Work, WorkId } from './type';
+import { Work, WorkId } from './type'
 
-import myImage from './assets/my.png';
+import myImage from './assets/my.png'
 
 export const works: Work[] = [
   {
@@ -8,7 +8,7 @@ export const works: Work[] = [
     name: 'bplink66.com',
     year: 2022,
     tags: ['Next', 'TypeScript'],
-    url: 'https://www.baidu.com/',
-    image: myImage,
+    url: 'https://github.com/stydle/bplink66.com',
+    image: myImage
   }
 ]

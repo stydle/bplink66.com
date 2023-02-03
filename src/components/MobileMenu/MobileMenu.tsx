@@ -1,29 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import React, { useState, useEffect } from 'react'
+import styled from 'styled-components'
 
-import NextLink from 'next/link';
-import MenuIcon from './MenuIcon';
-import CrossIcon from './CrossIcon';
+import NextLink from 'next/link'
+import MenuIcon from './MenuIcon'
+import CrossIcon from './CrossIcon'
 import UnstyledButton from '../UnstyledButton/UnstyledButton'
 
 const MobileMenu = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   function toggleMenu() {
     if (isMenuOpen) {
-      setIsMenuOpen(false);
-      document.body.style.overflow = '';
+      setIsMenuOpen(false)
+      document.body.style.overflow = ''
     } else {
-      setIsMenuOpen(true);
-      document.body.style.overflow = 'hidden';
+      setIsMenuOpen(true)
+      document.body.style.overflow = 'hidden'
     }
   }
 
   useEffect(() => {
     return function cleanup() {
-      document.body.style.overflow = '';
-    };
-  }, []);
+      document.body.style.overflow = ''
+    }
+  }, [])
 
   return (
     <Wrapper>
@@ -32,20 +32,15 @@ const MobileMenu = () => {
         <CrossIcon isShow={isMenuOpen} />
       </MobileIconBtn>
 
-      {
-        isMenuOpen && (
-          <MobileMenuWrapper>
-            <MobileMenuList>
-              <MobileMenuItem>
-                <MobileMenuLink href="/1">首页</MobileMenuLink>
-              </MobileMenuItem>
-              <MobileMenuItem>
-                <MobileMenuLink href="/1">画廊</MobileMenuLink>
-              </MobileMenuItem>
-            </MobileMenuList>
-          </MobileMenuWrapper>
-        )
-      }
+      {isMenuOpen && (
+        <MobileMenuWrapper>
+          <MobileMenuList>
+            <MobileMenuItem>
+              <MobileMenuLink href="https://blog.bplink66.com">个人博客</MobileMenuLink>
+            </MobileMenuItem>
+          </MobileMenuList>
+        </MobileMenuWrapper>
+      )}
     </Wrapper>
   )
 }
@@ -53,7 +48,7 @@ const Wrapper = styled.div`
   @media ${props => props.theme.BREAKPOINTS.mdAndLarger} {
     display: none;
   }
-`;
+`
 
 const MobileMenuWrapper = styled.div`
   position: absolute;
@@ -70,7 +65,7 @@ const MobileMenuList = styled.ul`
   padding: 0;
   margin: 0;
   line-height: var(--lineHeights-base);
-`;
+`
 
 const MobileMenuItem = styled.li`
   list-style: none;
@@ -79,7 +74,7 @@ const MobileMenuItem = styled.li`
   &:not(:first-child) {
     margin-top: var(--spacing-6);
   }
-`;
+`
 
 const MobileIconBtn = styled(UnstyledButton)`
   height: var(--sizes-icon);
@@ -92,6 +87,6 @@ const MobileMenuLink = styled(NextLink)`
   color: inherit;
   text-decoration: none;
   padding: 0 var(--spacing-1) var(--spacing-4);
-`;
+`
 
-export default MobileMenu;
+export default MobileMenu

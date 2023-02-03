@@ -11,4 +11,4 @@ const Tag = styled.span`
   margin: 0 var(--spacing-1);
 `
 
-export default Tag;
+export default Tag

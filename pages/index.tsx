@@ -18,8 +18,8 @@ function Home() {
 
 export async function getStaticProps() {
   return {
-    props: {},
-  };
+    props: {}
+  }
 }
 
-export default Home;
+export default Home

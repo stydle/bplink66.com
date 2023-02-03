@@ -10,7 +10,7 @@ const SkillsSection = () => {
   return (
     <Panel title="技能树">
       <SkillsWrapper>
-        {skills.map((skill) => (
+        {skills.map(skill => (
           <Card key={skill.id}>
             <CardLogo>
               <CardImage
@@ -45,7 +45,7 @@ const SkillsWrapper = styled.div`
   @media ${props => props.theme.BREAKPOINTS.xsAndSmaller} {
     grid-template-columns: repeat(1, 1fr);
   }
-`;
+`
 
 const CardLogo = styled.div`
   margin: var(--spacing-3);
@@ -55,11 +55,11 @@ const CardLogo = styled.div`
 const CardImage = styled(Image)`
   width: 100%;
   height: 130px;
-`;
+`
 
 const CardContent = styled.div`
   margin: var(--spacing-3);
   text-align: center;
 `
 
-export default SkillsSection;
+export default SkillsSection

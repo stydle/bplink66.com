@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
 
 import GlobalStyles from './global'
 import ConstantThemes from '@/theme/theme-vars'

@@ -1,10 +1,10 @@
-import { StaticImageData } from 'next/image';
+import { StaticImageData } from 'next/image'
 
 export interface Skill {
-  id: SkillId;
-  alt: string;
-  name: string;
-  image: StaticImageData;
+  id: SkillId
+  alt: string
+  name: string
+  image: StaticImageData
 }
 
 export enum SkillId {
@@ -21,5 +21,5 @@ export enum SkillId {
   C = 'c++',
   Vite = 'vite',
   Nginx = 'nginx',
-  K8s = 'k8s',
+  K8s = 'k8s'
 }

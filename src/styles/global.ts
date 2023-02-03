@@ -1,5 +1,4 @@
-import { css } from 'styled-components';
-
+import { css } from 'styled-components'
 
 const GlobalStyles = css`
   /* Box sizing rules */
@@ -29,7 +28,8 @@ const GlobalStyles = css`
   }
 
   /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-  ul, ol {
+  ul,
+  ol {
     padding: 0;
     margin: 0;
     margin-left: 30px;
@@ -71,6 +71,6 @@ const GlobalStyles = css`
   select {
     font: inherit;
   }
-`;
+`
 
-export default GlobalStyles;
+export default GlobalStyles

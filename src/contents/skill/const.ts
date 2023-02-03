@@ -1,4 +1,4 @@
-import { Skill, SkillId } from './type';
+import { Skill, SkillId } from './type'
 
 import vueImage from './assets/vue.svg'
 import reactImage from './assets/react.svg'
@@ -18,61 +18,72 @@ export const skills: Skill[] = [
     id: SkillId.React,
     name: 'React',
     alt: 'React logo',
-    image: reactImage,
-  }, {
+    image: reactImage
+  },
+  {
     id: SkillId.Vue,
     name: 'Vue',
     alt: 'Vue logo',
-    image: vueImage,
-  }, {
+    image: vueImage
+  },
+  {
     id: SkillId.TypeScript,
     name: 'TypeScript',
     alt: 'TypeScript logo',
-    image: typescriptImage,
-  }, {
+    image: typescriptImage
+  },
+  {
     id: SkillId.JavaScript,
     name: 'JavaScript',
     alt: 'JavaScript logo',
-    image: javascriptImage,
-  }, {
+    image: javascriptImage
+  },
+  {
     id: SkillId.Git,
     name: 'Git',
     alt: 'Git logo',
-    image: gitImage,
-  }, {
+    image: gitImage
+  },
+  {
     id: SkillId.Nodejs,
     name: 'Nodejs',
     alt: 'Nodejs logo',
-    image: nodejsImage,
-  }, {
+    image: nodejsImage
+  },
+  {
     id: SkillId.Docker,
     name: 'Docker',
     alt: 'Docker logo',
-    image: dockerImage,
-  }, {
+    image: dockerImage
+  },
+  {
     id: SkillId.Nextjs,
     name: 'Nextjs',
     alt: 'Nextjs logo',
-    image: nextjsImage,
-  }, {
+    image: nextjsImage
+  },
+  {
     id: SkillId.Golang,
     name: 'Golang',
     alt: 'Golang logo',
-    image: golangImage,
-  }, {
+    image: golangImage
+  },
+  {
     id: SkillId.Vite,
     name: 'Vite',
     alt: 'Vite logo',
-    image: viteImage,
-  }, {
+    image: viteImage
+  },
+  {
     id: SkillId.Nginx,
     name: 'Nginx',
     alt: 'Nginx logo',
-    image: nginxImage,
-  }, {
+    image: nginxImage
+  },
+  {
     id: SkillId.K8s,
     name: 'K8s',
     alt: 'K8s logo',
-    image: k8sImage,
+    image: k8sImage
   }
 ]

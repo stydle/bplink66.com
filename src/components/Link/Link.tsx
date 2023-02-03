@@ -3,28 +3,28 @@ import NextLink from 'next/link'
 import styled from 'styled-components'
 
 interface LinkProps {
-  href: string,
-  rel?: string,
-  target?: string,
-  children?: React.ReactNode,
+  href: string
+  rel?: string
+  target?: string
+  children?: React.ReactNode
 }
 
 const Link = ({ href, target, rel, ...delegated }: LinkProps) => {
-  let linkType;
+  let linkType
 
   if (href.match(/^#/)) {
-    linkType = 'hash';
+    linkType = 'hash'
   } else if (href.match(/(^http|^mailto)/i) || target === '_blank') {
-    linkType = 'external';
+    linkType = 'external'
   } else {
-    linkType = 'internal';
+    linkType = 'internal'
   }
 
   if (typeof target === 'undefined') {
-    target = (linkType === 'external' ? '_blank' : undefined);
+    target = linkType === 'external' ? '_blank' : undefined
   }
 
-  const safeRel = (target === '_blank' ? 'noopener noreferrer' : rel);
+  const safeRel = target === '_blank' ? 'noopener noreferrer' : rel
 
   // 内部链接
   if (linkType === 'internal') {
@@ -36,7 +36,7 @@ const Link = ({ href, target, rel, ...delegated }: LinkProps) => {
         target={target}
         {...delegated}
       />
-    );
+    )
   }
 
   return (
@@ -47,19 +47,19 @@ const Link = ({ href, target, rel, ...delegated }: LinkProps) => {
       target={target}
       {...delegated}
     />
-  );
-};
+  )
+}
 
 const InternalLink = styled(NextLink)`
   text-decoration: none;
   transition: color 0.2s;
   color: var(--colors-link-text);
 
-  &:hover{
+  &:hover {
     color: var(--colors-link-active);
     text-decoration: underline;
   }
-`;
+`
 
 export const UnstyledLink = styled(NextLink)<{
   display?: string
@@ -72,7 +72,6 @@ export const UnstyledLink = styled(NextLink)<{
   &:focus {
     outline: none;
   }
-`;
+`
 
-
-export default Link;
+export default Link

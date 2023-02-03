@@ -42,21 +42,21 @@ const AuthorImageWrapper = styled.div`
   @media ${props => props.theme.BREAKPOINTS.mdAndSmaller} {
     margin: var(--spacing-3) auto;
   }
-`;
+`
 
 const AuthorImage = styled(Image)`
   object-fit: cover;
   border-radius: var(--borderRadius-full);
-`;
+`
 
 const AuthContentWrapper = styled.div`
   flex: 1;
   position: relative;
-`;
+`
 
 const AuthorParagraph = styled.p`
   text-align: justify;
   margin: var(--spacing-2) 0;
-`;
+`
 
-export default BiographySection;
+export default BiographySection

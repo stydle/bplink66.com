@@ -1,12 +1,12 @@
-import { StaticImageData } from 'next/image';
+import { StaticImageData } from 'next/image'
 
 export interface Work {
-  id: WorkId;
-  name: string;
-  year: number;
-  tags: string[];
-  url: string;
-  image: StaticImageData;
+  id: WorkId
+  name: string
+  year: number
+  tags: string[]
+  url: string
+  image: StaticImageData
 }
 
 export enum WorkId {

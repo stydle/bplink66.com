@@ -1,0 +1,8 @@
+.next
+node_modules
+repos.json
+.now
+.vercel
+.env*
+.vscode
+yarn.lock

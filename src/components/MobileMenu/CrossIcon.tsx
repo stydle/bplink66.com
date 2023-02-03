@@ -1,10 +1,9 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-import { Wrapper } from './MenuIcon';
-import { MobileMenuIcon } from '@/types/menu';
+import { Wrapper } from './MenuIcon'
+import { MobileMenuIcon } from '@/types/menu'
 
 const CrossIcon = ({ isShow }: MobileMenuIcon) => {
-
   return (
     <Wrapper
       width="24"
@@ -21,7 +20,7 @@ const CrossIcon = ({ isShow }: MobileMenuIcon) => {
       <path d="M18 6L6 18" />
       <path d="M6 6l12 12" />
     </Wrapper>
-  );
+  )
 }
 
-export default CrossIcon;
+export default CrossIcon

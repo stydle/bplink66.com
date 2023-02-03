@@ -6,8 +6,8 @@ const ContainerSize: BreakpointSizes = {
   sm: 563,
   md: 768,
   lg: 1024,
-  xl: 1440,
-};
+  xl: 1440
+}
 
 export const BREAKPOINTS: Breakpoints = {
   xs: `(max-width: ${ContainerSize.xs}px)`,
@@ -26,8 +26,8 @@ export const BREAKPOINTS: Breakpoints = {
   lgAndLarger: `(min-width: ${ContainerSize.lg + 1}px)`,
   xlAndLarger: `(min-width: ${ContainerSize.xl + 1}px)`,
   mobile: `(max-width: ${ContainerSize.md}px)`,
-  desktop: `(min-width: ${ContainerSize.md + 1}px)`,
-};
+  desktop: `(min-width: ${ContainerSize.md + 1}px)`
+}
 
 const ConstantThemes: Constants = {
   body: {
@@ -36,18 +36,18 @@ const ConstantThemes: Constants = {
   fontWeights: {
     normal: 400,
     medium: 500,
-    bold: 700,
+    bold: 700
   },
   fontSizes: {
     sm: '0.875rem',
-    normal: '1rem',
+    normal: '1rem'
   },
   lineHeights: {
     none: '1',
     shorter: '1.25',
     base: '1.5',
     tall: '1.8',
-    menu: '2.25rem',
+    menu: '2.25rem'
   },
   spacing: {
     1: '0.25rem',
@@ -60,21 +60,21 @@ const ConstantThemes: Constants = {
     8: '2rem',
     9: '2.25rem',
     10: '2.5rem',
-    12: '3rem',
+    12: '3rem'
   },
   borderRadius: {
     none: '0',
     sm: '0.125rem',
     base: '0.25rem',
     md: '0.375rem',
-    full: '9999px',
+    full: '9999px'
   },
   zIndex: {
     hide: '-1',
     auto: 'auto',
     base: '0',
     heading: '1',
-    menu: '10',
+    menu: '10'
   },
   sizes: {
     container: ContainerSize,
@@ -82,6 +82,6 @@ const ConstantThemes: Constants = {
     icon: '2.25rem',
     tag: '1.6rem'
   }
-};
+}
 
-export default ConstantThemes;
+export default ConstantThemes
