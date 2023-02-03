@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Link, { UnstyledLink } from '../Link/Link'
 import Heading from '../Heading/Heading'
 import MaxWidthWrapper from '@/components/MaxWidthWrapper/MaxWidthWrapper'
+import { color, constant } from '@/utils/utils'
 import Config from '@/config/config'
 
 const Footer = () => {
@@ -64,20 +65,20 @@ const Footer = () => {
 }
 
 const Wrapper = styled.footer`
-  color: var(--colors-secondaryText);
-  background-color: var(--colors-secondaryBackground);
-  padding: var(--spacing-6);
+  color: ${color('secondaryText')};
+  background-color: ${color('secondaryBackground')};
+  padding: ${constant('spacing.6')};
 
   @media ${p => p.theme.BREAKPOINTS.mdAndSmaller} {
-    padding-left: var(--spacing-3);
-    padding-right: var(--spacing-3);
+    padding-left: ${constant('spacing.3')};
+    padding-right: ${constant('spacing.3')};
   }
 `
 
 const FooterGrid = styled(MaxWidthWrapper)`
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-4);
+  gap: ${constant('spacing.4')};
   margin: 0 auto;
 
   @media ${p => p.theme.BREAKPOINTS.mdAndLarger} {
@@ -94,18 +95,18 @@ const FooterLogo = styled.div`
   width: 100%;
   grid-area: logo;
   text-align: center;
-  margin-bottom: var(--spacing-5);
+  margin-bottom: ${constant('spacing.5')};
 `
 
 const GreyLink = styled(UnstyledLink)`
   &:hover {
-    color: var(--colors-text);
+    color: ${color('text')};
   }
 `
 
 const FooterDesktop = styled.p`
-  margin: var(--spacing-1);
-  font-weight: var(--fontWeights-medium);
+  margin: ${constant('spacing.1')};
+  font-weight: ${constant('fontWeights.medium')};
 `
 
 const FooterNav1 = styled.div`
@@ -117,7 +118,7 @@ const FooterNav1 = styled.div`
 const FooterNavList = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-4);
+  gap: ${constant('spacing.4')};
   list-style: none;
   margin-left: 0;
 `
@@ -137,10 +138,10 @@ const FooterNav3 = styled.div`
 `
 
 const FooterLegal = styled.div`
-  font-size: var(--fontSizes-sm);
+  font-size: ${constant('fontSizes.sm')};
   grid-area: legal;
   border-top-width: 1px;
-  padding: var(--spacing-2) 0;
+  padding: ${constant('spacing.2')} 0;
   text-align: center;
 `
 

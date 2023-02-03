@@ -1,5 +1,6 @@
 interface bodyTypes {
-  font: string
+  font: string,
+  size: string,
 }
 
 interface fontWeighTypes {

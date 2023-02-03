@@ -5,6 +5,7 @@ import Head from '@/components/GlobalHead/Head'
 import GlobalHeader from '@/components/GlobalHeader/Header'
 import MaxWidthWrapper from '@/components/MaxWidthWrapper/MaxWidthWrapper'
 import Footer from '@/components/GlobalFooter/Footer'
+import { color, constant } from '@/utils/utils'
 
 export default function BlogLayout({
   children
@@ -24,19 +25,19 @@ export default function BlogLayout({
 }
 
 const Wrapper = styled.div`
-  font-size: 16px;
+  font-size: ${constant('body.size')};
   min-height: 100vh;
-  font-family: var(--body-font);
-  color: var(--colors-text);
+  font-family: ${constant('body.font')};
+  color: ${color('text')};
 `
 
 const Main = styled.main`
   position: relative;
-  padding: 0 var(--spacing-8);
-  margin: var(--spacing-12) 0;
+  padding: 0 ${constant('spacing.8')};
+  margin: ${constant('spacing.12')} 0;
 
   @media ${p => p.theme.BREAKPOINTS.mdAndSmaller} {
-    margin: var(--spacing-6) 0;
-    padding: 0 var(--spacing-3);
+    margin: ${constant('spacing.6')} 0;
+    padding: 0 ${constant('spacing.3')};
   }
 `

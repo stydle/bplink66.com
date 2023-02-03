@@ -5,6 +5,7 @@ import Panel from '../Panel/Panel'
 import Card from '../Card/Card'
 import { skills } from '@/contents/skill'
 import Heading from '@/components/Heading/Heading'
+import { constant } from '@/utils/utils'
 
 const SkillsSection = () => {
   return (
@@ -31,12 +32,11 @@ const SkillsSection = () => {
 
 const SkillsWrapper = styled.div`
   display: grid;
-  gap: var(--spacing-6);
-  margin-bottom: var(--spacing-4);
+  gap: ${constant('spacing.4')};
+  margin-bottom: ${constant('spacing.4')};
   grid-template-columns: repeat(4, 1fr);
 
   @media ${props => props.theme.BREAKPOINTS.mdAndSmaller} {
-    gap: var(--spacing-4);
     grid-template-columns: repeat(3, 1fr);
   }
   @media ${props => props.theme.BREAKPOINTS.smAndSmaller} {
@@ -48,7 +48,7 @@ const SkillsWrapper = styled.div`
 `
 
 const CardLogo = styled.div`
-  margin: var(--spacing-3);
+  margin: ${constant('spacing.3')};
   position: relative;
 `
 
@@ -58,7 +58,7 @@ const CardImage = styled(Image)`
 `
 
 const CardContent = styled.div`
-  margin: var(--spacing-3);
+  margin: ${constant('spacing.3')};
   text-align: center;
 `
 

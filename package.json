@@ -1,5 +1,9 @@
 {
+  "name": "bplink66.com",
+  "version": "1.0.0",
   "private": true,
+  "description": "personal homepage",
+  "author": "stydle",
   "scripts": {
     "dev": "next",
     "build": "next build",

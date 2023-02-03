@@ -2,6 +2,8 @@ import React from 'react'
 import NextLink from 'next/link'
 import styled from 'styled-components'
 
+import { color } from '@/utils/utils'
+
 interface LinkProps {
   href: string
   rel?: string
@@ -53,10 +55,10 @@ const Link = ({ href, target, rel, ...delegated }: LinkProps) => {
 const InternalLink = styled(NextLink)`
   text-decoration: none;
   transition: color 0.2s;
-  color: var(--colors-link-text);
+  color: ${color('link.text')};
 
   &:hover {
-    color: var(--colors-link-active);
+    color: ${color('link.active')};
     text-decoration: underline;
   }
 `

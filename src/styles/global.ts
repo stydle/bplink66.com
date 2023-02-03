@@ -1,4 +1,5 @@
 import { css } from 'styled-components'
+import { color, constant } from '@/utils/utils'
 
 const GlobalStyles = css`
   /* Box sizing rules */
@@ -10,7 +11,7 @@ const GlobalStyles = css`
     border-style: solid;
     word-wrap: break-word;
     box-sizing: border-box;
-    border-color: var(--colors-border);
+    border-color: ${color('border')};
   }
 
   /* Remove default margin */
@@ -48,8 +49,8 @@ const GlobalStyles = css`
   body {
     min-height: 100vh;
     text-rendering: optimizeSpeed;
-    line-height: var(--lineHeights-base);
-    background-color: var(--colors-background);
+    line-height: ${constant('lineHeights.base')};
+    background-color: ${color('background')};
   }
 
   /* A elements that don't have a class get default styles */

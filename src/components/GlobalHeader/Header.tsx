@@ -6,6 +6,7 @@ import { ContentContext } from '../ConfigContext/ConfigContext'
 import MobileMenu from '../MobileMenu/MobileMenu'
 import UnstyledButton from '../UnstyledButton/UnstyledButton'
 import MaxWidthWrapper from '../MaxWidthWrapper/MaxWidthWrapper'
+import { color, constant } from '@/utils/utils'
 
 function GlobalHeader() {
   const { colorMode, setColorMode } = useContext(ContentContext)
@@ -62,19 +63,19 @@ function GlobalHeader() {
 
 const Wrapper = styled.header`
   width: 100%;
-  padding: 0 var(--spacing-8);
+  padding: 0 ${constant('spacing.8')};
 
   @media ${p => p.theme.BREAKPOINTS.mdAndSmaller} {
-    padding: 0 var(--spacing-3);
+    padding: 0 ${constant('spacing.3')};
   }
 `
 
 const NavWrapper = styled(MaxWidthWrapper)`
   display: flex;
-  padding: var(--spacing-5) 0;
+  padding: ${constant('spacing.5')} 0;
   justify-content: space-between;
-  line-height: var(--lineHeights-menu);
-  font-weight: var(--fontWeights-bold);
+  line-height: ${constant('lineHeights.menu')};
+  font-weight: ${constant('fontWeights.bold')};
 `
 
 const NavList = styled.div`
@@ -92,14 +93,14 @@ const NavItem = styled(NextLink)<{
   display: inline-block;
   text-decoration: none;
   color: ${({ $active }) =>
-    $active ? 'var(--colors-text)' : 'var(--colors-secondaryText)'};
-  padding: 0 var(--spacing-3);
-  margin-right: var(--spacing-1);
-  border-radius: var(--borderRadius-md);
+    color($active ? 'text':'secondaryText')};
+  padding: 0 ${constant('spacing.3')};
+  margin-right: ${constant('spacing.1')};
+  border-radius: ${constant('borderRadius.md')};
   transition: background 0.2s;
 
   &:hover {
-    background-color: var(--colors-nav-bg);
+    background-color: ${color('nav.bg')};
   }
 `
 
@@ -107,18 +108,18 @@ const ThemeButton = styled(UnstyledButton)`
   position: relative;
   align-items: center;
   justify-content: center;
-  border-radius: var(--borderRadius-md);
-  height: var(--sizes-icon);
-  width: var(--sizes-icon);
-  background-color: var(--colors-button-gray-bg);
+  border-radius: ${constant('borderRadius.md')};
+  height: ${constant('sizes.icon')};
+  width: ${constant('sizes.icon')};
+  background-color: ${color('button.gray.bg')};
 
   &:hover {
-    background-color: var(--colors-button-gray-active);
+    background-color: ${color('button.gray.active')};
   }
 `
 
 const ThemeWrapper = styled.svg`
-  color: var(--colors-text);
+  color: ${color('text')};
   width: 1.15rem;
   height: 1.15rem;
 `

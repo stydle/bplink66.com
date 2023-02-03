@@ -1,9 +1,7 @@
-import styled from 'styled-components'
-
 import { Wrapper } from './MenuIcon'
-import { MobileMenuIcon } from '@/types/menu'
+import { MobileMenuTypes } from './menu'
 
-const CrossIcon = ({ isShow }: MobileMenuIcon) => {
+const CrossIcon = ({ isShow }: MobileMenuTypes) => {
   return (
     <Wrapper
       width="24"

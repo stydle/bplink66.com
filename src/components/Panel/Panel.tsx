@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Heading from '@/components/Heading/Heading'
+import { constant } from '@/utils/utils'
 
 interface PanelProps {
   title?: string
@@ -27,7 +28,7 @@ const Wrapper = styled.section<{
 
 const PanelContentWrapper = styled.div`
   position: relative;
-  line-height: var(--lineHeights-tall);
+  line-height: ${constant('lineHeights.tall')};
   padding: 0 3px;
 `
 

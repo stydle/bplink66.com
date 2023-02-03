@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Heading from '../Heading/Heading'
 import { PanelWrapper } from '../Panel/Panel'
 import Config from '@/config/config'
+import { constant } from '@/utils/utils'
 
 const BiographySection = () => {
   return (
@@ -25,7 +26,7 @@ const BiographySection = () => {
 }
 
 const Wrapper = styled(PanelWrapper)`
-  margin-bottom: var(--spacing-4);
+  margin-bottom: ${constant('spacing.4')};
 
   @media ${props => props.theme.BREAKPOINTS.mdAndSmaller} {
     text-align: center;
@@ -37,16 +38,16 @@ const AuthorImageWrapper = styled.div`
   width: 125px;
   height: 125px;
   position: relative;
-  margin-left: var(--spacing-8);
+  margin-left: ${constant('spacing.8')};
 
   @media ${props => props.theme.BREAKPOINTS.mdAndSmaller} {
-    margin: var(--spacing-3) auto;
+    margin: ${constant('spacing.3')} auto;
   }
 `
 
 const AuthorImage = styled(Image)`
   object-fit: cover;
-  border-radius: var(--borderRadius-full);
+  border-radius: ${constant('borderRadius.full')};
 `
 
 const AuthContentWrapper = styled.div`
@@ -56,7 +57,7 @@ const AuthContentWrapper = styled.div`
 
 const AuthorParagraph = styled.p`
   text-align: justify;
-  margin: var(--spacing-2) 0;
+  margin: ${constant('spacing.2')} 0;
 `
 
 export default BiographySection

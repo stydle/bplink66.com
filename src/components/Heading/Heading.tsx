@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
+import { color, constant } from '@/utils/utils'
 
 interface HeadingProps {
   type?: string
@@ -29,10 +30,10 @@ const Heading = ({
 }
 
 const SectionTitle = styled.h1`
-  margin: var(--spacing-5) 0;
+  margin: ${constant('spacing.5')} 0;
   padding-bottom: 0.25rem;
   position: relative;
-  font-weight: var(--fontWeights-bold);
+  font-weight: ${constant('fontWeights.bold')};
   border-bottom-width: 1px;
   border-bottom-style: dashed;
 
@@ -44,33 +45,33 @@ const SectionTitle = styled.h1`
     display: block;
     width: 2rem;
     height: 2.5px;
-    border-radius: var(--borderRadius-base);
-    box-shadow: var(--colors-heading-shadow);
-    background: var(--colors-heading-gradient);
+    border-radius: ${constant('borderRadius.base')};
+    box-shadow: ${color('heading.shadow')};
+    background: ${color('heading.gradient')};
     transition: all 0.25s ease 0s;
-    z-index: var(--zIndex-heading);
+    z-index: ${constant('zIndex.heading')};
   }
 `
 
 const Basics = css`
   margin: 0;
   margin-inline: 0px;
-  line-height: var(--lineHeights-shorter);
+  line-height: ${constant('lineHeights.shorter')};
 `
 
 const LargeTitle = styled.h1`
   ${Basics}
-  font-weight: var(--fontWeights-bold);
+  font-weight: ${constant('fontWeights.bold')};
   font-size: calc(32 / 16 * 1rem);
 `
 const MediumTitle = styled.h2`
   ${Basics}
-  font-weight: var(--fontWeights-bold);
+  font-weight: ${constant('fontWeights.bold')};
   font-size: calc(26 / 16 * 1rem);
 `
 const SmallTitle = styled.h3`
   ${Basics}
-  font-weight: var(--fontWeights-medium);
+  font-weight: ${constant('fontWeights.medium')};
   font-size: calc(18 / 16 * 1rem);
 `
 

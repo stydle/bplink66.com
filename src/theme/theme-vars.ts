@@ -31,7 +31,8 @@ export const BREAKPOINTS: Breakpoints = {
 
 const ConstantThemes: Constants = {
   body: {
-    font: 'Helvetica Neue, Helvetica,PingFang SC, Tahoma,Arial, sans-serif'
+    font: 'Helvetica Neue, Helvetica,PingFang SC, Tahoma,Arial, sans-serif',
+    size: '16px',
   },
   fontWeights: {
     normal: 400,

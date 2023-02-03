@@ -7,6 +7,7 @@ import Panel from '../Panel/Panel'
 import Card from '../Card/Card'
 import Tag from '@/components/Tag/Tag'
 import Heading from '@/components/Heading/Heading'
+import { color, constant } from '@/utils/utils'
 
 const WorksSection = () => {
   return (
@@ -44,8 +45,8 @@ const WorksSection = () => {
 const WorksWrapper = styled.ul`
   margin-left: 0;
   display: grid;
-  gap: var(--spacing-4);
-  margin-bottom: var(--spacing-4);
+  gap: ${constant('spacing.4')};
+  margin-bottom: ${constant('spacing.4')};
   grid-template-columns: repeat(3, 1fr);
 
   @media ${props => props.theme.BREAKPOINTS.mdAndSmaller} {
@@ -72,15 +73,15 @@ const CardImage = styled(Image)`
 `
 
 const CardContent = styled.div`
-  padding: var(--spacing-1) var(--spacing-3) var(--spacing-4);
+  padding: ${constant('spacing.1')} ${constant('spacing.3')} ${constant('spacing.4')};
 `
 
 const WorksLevel = styled.p`
-  color: var(--colors-secondaryText);
+  color: ${color('secondaryText')};
 `
 
 const CardFooter = styled.div`
-  padding: var(--spacing-2);
+  padding: ${constant('spacing.2')};
   border-top-width: 1px;
   ${Tag} + ${Tag} {
     margin-left: 8px;

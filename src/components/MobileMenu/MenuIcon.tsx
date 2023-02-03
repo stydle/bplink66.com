@@ -1,8 +1,8 @@
 import styled from 'styled-components'
+import { MobileMenuTypes } from './menu'
+import { color } from '@/utils/utils'
 
-import { MobileMenuIcon } from '@/types/menu'
-
-const MenuIcon = ({ isShow }: MobileMenuIcon) => {
+const MenuIcon = ({ isShow }: MobileMenuTypes) => {
   return (
     <Wrapper
       width="20"
@@ -42,7 +42,7 @@ export const Wrapper = styled.svg<{
   width: 1.25rem;
   height: 1.25rem;
   opacity: ${props => (props.show ? '1' : '0')};
-  color: var(--colors-text);
+  color: ${color('text')};
   vertical-align: middle;
   transition: opacity 0.3s ease, transform 0.3s ease;
   position: absolute;
