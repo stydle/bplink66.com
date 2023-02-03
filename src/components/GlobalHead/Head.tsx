@@ -1,17 +1,12 @@
 import React from 'react'
 import NextHead from 'next/head'
 import { useRouter } from 'next/router'
+import Config from '@/config/config'
 
 const GENERIC_DESCRIPTION =
   'Friendly tutorials for developers. Focus on React, CSS, Animation, and more!'
 
 const PROD_URL = 'https://www.joshwcomeau.com'
-
-const faviconSrc =
-  process.env.NODE_ENV === 'production'
-    ? '/favicons/favicon.jpg'
-    : '/favicons/favicon-dev.jpg'
-
 interface MetaProps {
   title?: string
   ogImage?: string
@@ -22,13 +17,10 @@ function Head({ description = '', title, ogImage }: MetaProps) {
   const router = useRouter()
 
   const meta = {
-    title: title || "Baipc's Blog",
+    title: title || Config.name,
     description: description || GENERIC_DESCRIPTION,
     image: PROD_URL + (ogImage || '/favicons/og-default.jpg'),
     type: 'website',
-    imageAlt: ogImage
-      ? 'Banner for site, showing page title in a playful way'
-      : 'Banner for joshwcomeau.com, featuring a word map and a cute 3D avatar'
   }
 
   return (
@@ -46,22 +38,22 @@ function Head({ description = '', title, ogImage }: MetaProps) {
 
       <meta property="og:url" content={`${PROD_URL}${router.asPath}`} />
       <meta property="og:type" content={meta.type} />
-      <meta property="og:site_name" content="Xiao Bai" />
       <meta property="og:description" content={meta.description} />
       <meta property="og:title" content={meta.title} />
       <meta property="og:image" content={meta.image} />
-      <meta property="og:image:alt" content={meta.imageAlt} />
       <meta property="og:image:width" content="1280" />
       <meta property="og:image:height" content="675" />
 
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@xiaoBai" />
       <meta name="twitter:title" content={meta.title} />
       <meta name="twitter:description" content={meta.description} />
       <meta name="twitter:image" content={meta.image} />
       <meta name="theme-color" content="hsl(204deg, 67%, 85%)" />
 
-      <link rel="icon" type="image/png" href={`${faviconSrc}?v=4`} />
+      <link rel="shortcut icon" href="/favicons/favicon.ico" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
 
       <link rel="canonical" href={`${PROD_URL}${router.asPath}`} />
     </NextHead>
