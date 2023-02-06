@@ -1,7 +1,8 @@
-import { Wrapper } from './MenuIcon'
-import { MobileMenuTypes } from './menu'
+import React from "react";
+import { Wrapper } from "./MenuIcon";
+import { MobileMenuProps } from "./menu";
 
-const CrossIcon = ({ isShow }: MobileMenuTypes) => {
+function CrossIcon({ isShow }: MobileMenuProps) {
   return (
     <Wrapper
       width="24"
@@ -18,7 +19,7 @@ const CrossIcon = ({ isShow }: MobileMenuTypes) => {
       <path d="M18 6L6 18" />
       <path d="M6 6l12 12" />
     </Wrapper>
-  )
+  );
 }
 
-export default CrossIcon
+export default CrossIcon;

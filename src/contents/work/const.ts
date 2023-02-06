@@ -1,14 +1,16 @@
-import { Work, WorkId } from './type'
+import { Work, WorkId } from "./type";
 
-import myImage from './assets/my.png'
+import myImage from "./assets/my.png";
 
-export const works: Work[] = [
+const works: Work[] = [
   {
     id: WorkId.My,
-    name: 'bplink66.com',
+    name: "bplink66.com",
     year: 2022,
-    tags: ['Next', 'TypeScript'],
-    url: 'https://github.com/stydle/bplink66.com',
+    tags: ["Next", "TypeScript"],
+    url: "https://github.com/stydle/bplink66.com",
     image: myImage
   }
-]
+];
+
+export default works;

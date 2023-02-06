@@ -1,16 +1,16 @@
-import styled from 'styled-components'
-import { color, constant } from '@/utils/utils'
+import styled from "styled-components";
+import { color, constant } from "@/utils/utils";
 
 const Card = styled.div`
   overflow: hidden;
-  border-radius: ${constant('borderRadius.md')};
+  border-radius: ${constant("borderRadius.md")};
   overflow-wrap: break-word;
-  box-shadow: ${color('card.shadow')};
+  box-shadow: ${color("card.shadow")};
   transition: box-shadow 0.2s ease;
-  background-color: ${color('card.bg')};
+  background-color: ${color("card.bg")};
 
   &:hover {
-    box-shadow: ${color('card.active')};
+    box-shadow: ${color("card.active")};
   }
-`
-export default Card
+`;
+export default Card;

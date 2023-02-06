@@ -1,10 +1,10 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
-import GlobalStyles from './global'
-import ConstantThemes from '@/theme/theme-vars'
-import { createCssVars } from '@/utils/utils'
-import ColorThemes, { DarkThemes, LightThemes } from '@/theme/color-vars'
-import { CSS_COLORS_PREFIX, CSS_CONSTANT_PREFIX } from '@/constants'
+import ConstantThemes from "@/theme/theme-vars";
+import { createCssVars } from "@/utils/utils";
+import ColorThemes, { DarkThemes, LightThemes } from "@/theme/color-vars";
+import { CSS_COLORS_PREFIX, CSS_CONSTANT_PREFIX } from "@/constants";
+import GlobalStyles from "./global";
 
 const Styles = createGlobalStyle`
   ${GlobalStyles}
@@ -23,6 +23,6 @@ const Styles = createGlobalStyle`
   [data-theme][data-theme=dark] {
     ${createCssVars(DarkThemes, CSS_COLORS_PREFIX)};
   }
-`
+`;
 
-export default Styles
+export default Styles;

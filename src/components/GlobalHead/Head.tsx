@@ -1,31 +1,29 @@
-import React from 'react'
-import NextHead from 'next/head'
-import { useRouter } from 'next/router'
-import Config from '@/config/config'
+import React from "react";
+import NextHead from "next/head";
+import { useRouter } from "next/router";
+import Config from "@/config/config";
 
 const GENERIC_TITLE = `${Config.name}'s portal site`;
-
 const GENERIC_DESCRIPTION =
-  'Friendly tutorials for developers. Focus on React, CSS, Animation, and more!'
+  "Friendly tutorials for developers. Focus on React, CSS, Animation, and more!";
 
-const PROD_URL = 'https://www.bplink66.com'
+const PROD_URL = "https://www.bplink66.com";
+
 interface MetaProps {
-  title?: string
-  ogImage?: string
-  description?: string
+  title?: string;
+  ogImage?: string;
+  description?: string;
 }
-
-function Head({ description = '', title, ogImage }: MetaProps) {
-  const router = useRouter()
-
+function Head({ description, title, ogImage }: MetaProps) {
+  const router = useRouter();
   const meta = {
     title: title || GENERIC_TITLE,
     description: description || GENERIC_DESCRIPTION,
-    image: PROD_URL + (ogImage || '/favicons/og-default.png'),
-    type: 'website',
+    image: PROD_URL + (ogImage || "/favicons/og-default.png"),
+    type: "website",
     imgWidth: 1280,
     imgHeight: 640
-  }
+  };
 
   return (
     <NextHead>
@@ -51,13 +49,33 @@ function Head({ description = '', title, ogImage }: MetaProps) {
       <meta property="og:image:height" content={`${meta.imgHeight}`} />
 
       <link rel="shortcut icon" href="/favicons/favicon.ico" />
-      <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
-      <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
-      <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+      <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="/favicons/apple-touch-icon.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="/favicons/favicon-32x32.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="/favicons/favicon-16x16.png"
+      />
 
       <link rel="canonical" href={`${PROD_URL}${router.asPath}`} />
     </NextHead>
-  )
+  );
 }
 
-export default Head
+Head.defaultProps = {
+  title: "",
+  ogImage: "",
+  description: ""
+};
+
+export default Head;

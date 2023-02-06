@@ -1,80 +1,86 @@
-import React from 'react'
+import React from "react";
 import {
   PREFERS_LOCAL_KEY,
   PREFERS_THEME_KEY,
   PREFERS_THEME_CSS_PROP
-} from '@/constants'
+} from "@/constants";
 
 export const ContentContext = React.createContext<{
-  colorMode: string
-  setColorMode: (string) => void
-  allowColorTransitions: boolean
-} | null>(null)
+  colorMode: string;
+  setColorMode: (string) => void;
+  allowColorTransitions: boolean;
+} | null>(null);
 
-export const ConfigProvider = ({ children }) => {
-  const initialColorValue = 'light'
-  const initialAllowColorTransitions = false
-  const [colorMode, rawSetColorMode] = React.useState(initialColorValue)
+interface ContextProps {
+  children: React.ReactNode;
+}
+
+export function ConfigProvider({ children }: ContextProps) {
+  const initialColorValue = "light";
+  const initialAllowColorTransitions = false;
+  const [colorMode, rawSetColorMode] = React.useState(initialColorValue);
   const [allowColorTransitions, setAllowColorTransitions] = React.useState(
     initialAllowColorTransitions
-  )
+  );
 
   React.useEffect(() => {
-    const root = window.document.documentElement
-    const localColorValue = root.style.getPropertyValue(PREFERS_THEME_CSS_PROP)
+    const root = window.document.documentElement;
+    const localColorValue = root.style.getPropertyValue(PREFERS_THEME_CSS_PROP);
 
     if (localColorValue !== initialColorValue) {
-      rawSetColorMode(localColorValue)
+      rawSetColorMode(localColorValue);
     }
-  }, [])
+  }, []);
 
   const setColorMode = React.useCallback(
-    value => {
+    (value) => {
       if (!allowColorTransitions) {
-        setAllowColorTransitions(true)
+        setAllowColorTransitions(true);
       }
 
-      const root = window.document.documentElement
-      rawSetColorMode(value)
-      root.setAttribute(PREFERS_THEME_KEY, value)
-      root.style.setProperty(PREFERS_THEME_CSS_PROP, value)
-      localStorage.setItem(PREFERS_LOCAL_KEY, value)
+      const root = window.document.documentElement;
+
+      rawSetColorMode(value);
+      root.setAttribute(PREFERS_THEME_KEY, value);
+      root.style.setProperty(PREFERS_THEME_CSS_PROP, value);
+      localStorage.setItem(PREFERS_LOCAL_KEY, value);
     },
     [allowColorTransitions]
-  )
+  );
 
   React.useEffect(() => {
-    const QUERY = '(prefers-color-scheme: dark)'
-    const mediaQueryList = window.matchMedia(QUERY)
-    const listener = event => {
-      const isDark = event.matches
-      setColorMode(isDark ? 'dark' : 'light')
-    }
+    const QUERY = "(prefers-color-scheme: dark)";
+    const mediaQueryList = window.matchMedia(QUERY);
+    const listener = (event) => {
+      const isDark = event.matches;
+
+      setColorMode(isDark ? "dark" : "light");
+    };
 
     if (mediaQueryList.addEventListener) {
-      mediaQueryList.addEventListener('change', listener)
+      mediaQueryList.addEventListener("change", listener);
     } else {
-      mediaQueryList.addListener(listener)
+      mediaQueryList.addListener(listener);
     }
 
     return () => {
       if (mediaQueryList.removeEventListener) {
-        mediaQueryList.removeEventListener('change', listener)
+        mediaQueryList.removeEventListener("change", listener);
       } else {
-        mediaQueryList.removeListener(listener)
+        mediaQueryList.removeListener(listener);
       }
-    }
-  }, [])
+    };
+  }, []);
 
   const value = React.useMemo(() => {
     return {
       colorMode,
       setColorMode,
       allowColorTransitions
-    }
-  }, [colorMode, setColorMode, rawSetColorMode, allowColorTransitions])
+    };
+  }, [colorMode, setColorMode, rawSetColorMode, allowColorTransitions]);
 
   return (
     <ContentContext.Provider value={value}>{children}</ContentContext.Provider>
-  )
+  );
 }

@@ -1,27 +1,89 @@
-import { useState, useEffect, useContext } from 'react'
-import styled from 'styled-components'
-import NextLink from 'next/link'
+import React, { useState, useEffect, useContext } from "react";
+import styled from "styled-components";
+import NextLink from "next/link";
 
-import { ContentContext } from '../ConfigContext/ConfigContext'
-import MobileMenu from '../MobileMenu/MobileMenu'
-import UnstyledButton from '../UnstyledButton/UnstyledButton'
-import MaxWidthWrapper from '../MaxWidthWrapper/MaxWidthWrapper'
-import { color, constant } from '@/utils/utils'
+import { color, constant } from "@/utils/utils";
+import { ContentContext } from "../ConfigContext/ConfigContext";
+import MobileMenu from "../MobileMenu/MobileMenu";
+import UnstyledButton from "../UnstyledButton/UnstyledButton";
+import MaxWidthWrapper from "../MaxWidthWrapper/MaxWidthWrapper";
+
+const Wrapper = styled.header`
+  width: 100%;
+  padding: 0 ${constant("spacing.8")};
+
+  @media ${(p) => p.theme.BREAKPOINTS.mdAndSmaller} {
+    padding: 0 ${constant("spacing.3")};
+  }
+`;
+
+const NavWrapper = styled(MaxWidthWrapper)`
+  display: flex;
+  padding: ${constant("spacing.5")} 0;
+  justify-content: space-between;
+  line-height: ${constant("lineHeights.menu")};
+  font-weight: ${constant("fontWeights.bold")};
+`;
+
+const NavList = styled.div`
+  height: 100%;
+  margin-left: -0.6rem;
+
+  @media ${(props) => props.theme.BREAKPOINTS.mdAndSmaller} {
+    display: none;
+  }
+`;
+
+const NavItem = styled(NextLink)<{
+  $active?: boolean;
+}>`
+  display: inline-block;
+  text-decoration: none;
+  color: ${({ $active }) => color($active ? "text" : "secondaryText")};
+  padding: 0 ${constant("spacing.3")};
+  margin-right: ${constant("spacing.1")};
+  border-radius: ${constant("borderRadius.md")};
+  transition: background 0.2s;
+
+  &:hover {
+    background-color: ${color("nav.bg")};
+  }
+`;
+
+const ThemeButton = styled(UnstyledButton)`
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  border-radius: ${constant("borderRadius.md")};
+  height: ${constant("sizes.icon")};
+  width: ${constant("sizes.icon")};
+  background-color: ${color("button.gray.bg")};
+
+  &:hover {
+    background-color: ${color("button.gray.active")};
+  }
+`;
+
+const ThemeWrapper = styled.svg`
+  color: ${color("text")};
+  width: 1.15rem;
+  height: 1.15rem;
+`;
 
 function GlobalHeader() {
-  const { colorMode, setColorMode } = useContext(ContentContext)
-  const [mounted, setMounted] = useState(false)
+  const { colorMode, setColorMode } = useContext(ContentContext);
+  const [mounted, setMounted] = useState(false);
 
-  const isDark = colorMode === 'dark'
+  const isDark = colorMode === "dark";
 
-  function toggleColorMode(event) {
-    event.preventDefault()
-    setColorMode(isDark ? 'light' : 'dark')
-  }
+  const toggleColorMode = (event) => {
+    event.preventDefault();
+    setColorMode(isDark ? "light" : "dark");
+  };
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   return (
     <Wrapper>
@@ -29,10 +91,12 @@ function GlobalHeader() {
         <MobileMenu />
 
         <NavList>
-          <NavItem href="/" $active={true}>
+          <NavItem href="/" $active>
             首页
           </NavItem>
-          <NavItem href="https://blog.bplink66.com">个人博客</NavItem>
+          <NavItem href="https://blog.bplink66.com" target="target">
+            个人博客
+          </NavItem>
         </NavList>
 
         <ThemeButton display="flex" onClick={toggleColorMode}>
@@ -58,70 +122,7 @@ function GlobalHeader() {
         </ThemeButton>
       </NavWrapper>
     </Wrapper>
-  )
+  );
 }
 
-const Wrapper = styled.header`
-  width: 100%;
-  padding: 0 ${constant('spacing.8')};
-
-  @media ${p => p.theme.BREAKPOINTS.mdAndSmaller} {
-    padding: 0 ${constant('spacing.3')};
-  }
-`
-
-const NavWrapper = styled(MaxWidthWrapper)`
-  display: flex;
-  padding: ${constant('spacing.5')} 0;
-  justify-content: space-between;
-  line-height: ${constant('lineHeights.menu')};
-  font-weight: ${constant('fontWeights.bold')};
-`
-
-const NavList = styled.div`
-  height: 100%;
-  margin-left: -0.6rem;
-
-  @media ${props => props.theme.BREAKPOINTS.mdAndSmaller} {
-    display: none;
-  }
-`
-
-const NavItem = styled(NextLink)<{
-  $active?: boolean
-}>`
-  display: inline-block;
-  text-decoration: none;
-  color: ${({ $active }) =>
-    color($active ? 'text':'secondaryText')};
-  padding: 0 ${constant('spacing.3')};
-  margin-right: ${constant('spacing.1')};
-  border-radius: ${constant('borderRadius.md')};
-  transition: background 0.2s;
-
-  &:hover {
-    background-color: ${color('nav.bg')};
-  }
-`
-
-const ThemeButton = styled(UnstyledButton)`
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  border-radius: ${constant('borderRadius.md')};
-  height: ${constant('sizes.icon')};
-  width: ${constant('sizes.icon')};
-  background-color: ${color('button.gray.bg')};
-
-  &:hover {
-    background-color: ${color('button.gray.active')};
-  }
-`
-
-const ThemeWrapper = styled.svg`
-  color: ${color('text')};
-  width: 1.15rem;
-  height: 1.15rem;
-`
-
-export default GlobalHeader
+export default GlobalHeader;

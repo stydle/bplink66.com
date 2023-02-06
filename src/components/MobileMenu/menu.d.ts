@@ -1,4 +1,3 @@
-
-export interface MobileMenuTypes {
+export interface MobileMenuProps {
   isShow: boolean;
 }

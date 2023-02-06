@@ -1,5 +1,5 @@
-import { Constants } from '@/types/constants-vars'
-import { BreakpointSizes, Breakpoints } from '@/types/styled'
+import { Constants } from "@/types/constants-vars.d";
+import { BreakpointSizes, Breakpoints } from "@/types/styled.d";
 
 const ContainerSize: BreakpointSizes = {
   xs: 320,
@@ -7,7 +7,7 @@ const ContainerSize: BreakpointSizes = {
   md: 768,
   lg: 1024,
   xl: 1440
-}
+};
 
 export const BREAKPOINTS: Breakpoints = {
   xs: `(max-width: ${ContainerSize.xs}px)`,
@@ -27,12 +27,12 @@ export const BREAKPOINTS: Breakpoints = {
   xlAndLarger: `(min-width: ${ContainerSize.xl + 1}px)`,
   mobile: `(max-width: ${ContainerSize.md}px)`,
   desktop: `(min-width: ${ContainerSize.md + 1}px)`
-}
+};
 
 const ConstantThemes: Constants = {
   body: {
-    font: 'Helvetica Neue, Helvetica,PingFang SC, Tahoma,Arial, sans-serif',
-    size: '16px',
+    font: "Helvetica Neue, Helvetica,PingFang SC, Tahoma,Arial, sans-serif",
+    size: "16px"
   },
   fontWeights: {
     normal: 400,
@@ -40,49 +40,49 @@ const ConstantThemes: Constants = {
     bold: 700
   },
   fontSizes: {
-    sm: '0.875rem',
-    normal: '1rem'
+    sm: "0.875rem",
+    normal: "1rem"
   },
   lineHeights: {
-    none: '1',
-    shorter: '1.25',
-    base: '1.5',
-    tall: '1.8',
-    menu: '2.25rem'
+    none: "1",
+    shorter: "1.25",
+    base: "1.5",
+    tall: "1.8",
+    menu: "2.25rem"
   },
   spacing: {
-    1: '0.25rem',
-    2: '0.5rem',
-    3: '0.75rem',
-    4: '1rem',
-    5: '1.25rem',
-    6: '1.5rem',
-    7: '1.75rem',
-    8: '2rem',
-    9: '2.25rem',
-    10: '2.5rem',
-    12: '3rem'
+    1: "0.25rem",
+    2: "0.5rem",
+    3: "0.75rem",
+    4: "1rem",
+    5: "1.25rem",
+    6: "1.5rem",
+    7: "1.75rem",
+    8: "2rem",
+    9: "2.25rem",
+    10: "2.5rem",
+    12: "3rem"
   },
   borderRadius: {
-    none: '0',
-    sm: '0.125rem',
-    base: '0.25rem',
-    md: '0.375rem',
-    full: '9999px'
+    none: "0",
+    sm: "0.125rem",
+    base: "0.25rem",
+    md: "0.375rem",
+    full: "9999px"
   },
   zIndex: {
-    hide: '-1',
-    auto: 'auto',
-    base: '0',
-    heading: '1',
-    menu: '10'
+    hide: "-1",
+    auto: "auto",
+    base: "0",
+    heading: "1",
+    menu: "10"
   },
   sizes: {
     container: ContainerSize,
-    max: '960px',
-    icon: '2.25rem',
-    tag: '1.6rem'
+    max: "960px",
+    icon: "2.25rem",
+    tag: "1.6rem"
   }
-}
+};
 
-export default ConstantThemes
+export default ConstantThemes;

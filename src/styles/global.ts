@@ -1,5 +1,5 @@
-import { css } from 'styled-components'
-import { color, constant } from '@/utils/utils'
+import { css } from "styled-components";
+import { color, constant } from "@/utils/utils";
 
 const GlobalStyles = css`
   /* Box sizing rules */
@@ -11,7 +11,7 @@ const GlobalStyles = css`
     border-style: solid;
     word-wrap: break-word;
     box-sizing: border-box;
-    border-color: ${color('border')};
+    border-color: ${color("border")};
   }
 
   /* Remove default margin */
@@ -35,8 +35,8 @@ const GlobalStyles = css`
     margin: 0;
     margin-left: 30px;
   }
-  ul[role='list'],
-  ol[role='list'] {
+  ul[role="list"],
+  ol[role="list"] {
     list-style: none;
   }
 
@@ -49,8 +49,8 @@ const GlobalStyles = css`
   body {
     min-height: 100vh;
     text-rendering: optimizeSpeed;
-    line-height: ${constant('lineHeights.base')};
-    background-color: ${color('background')};
+    line-height: ${constant("lineHeights.base")};
+    background-color: ${color("background")};
   }
 
   /* A elements that don't have a class get default styles */
@@ -72,6 +72,6 @@ const GlobalStyles = css`
   select {
     font: inherit;
   }
-`
+`;
 
-export default GlobalStyles
+export default GlobalStyles;

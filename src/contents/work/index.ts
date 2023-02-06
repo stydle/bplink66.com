@@ -1,3 +1,4 @@
-export type { Work, WorkId } from './type'
+import works from "./const";
 
-export { works } from './const'
+export type { Work, WorkId } from "./type";
+export { works };

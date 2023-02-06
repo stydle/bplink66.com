@@ -1,12 +1,17 @@
-import { BREAKPOINTS } from '@/theme/theme-vars'
-import { ThemeProvider, DefaultTheme } from 'styled-components'
+import React from "react";
+import { ThemeProvider, DefaultTheme } from "styled-components";
+import { BREAKPOINTS } from "@/theme/theme-vars";
 
-const ThemeProvide = ({ children }) => {
-  const theme: DefaultTheme = {
-    BREAKPOINTS: BREAKPOINTS
-  }
-
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>
+interface ThemeProps {
+  children: React.ReactNode;
 }
 
-export default ThemeProvide
+function ThemeProvide({ children }: ThemeProps) {
+  const theme: DefaultTheme = {
+    BREAKPOINTS
+  };
+
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+}
+
+export default ThemeProvide;

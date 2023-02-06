@@ -1,8 +1,24 @@
-import styled from 'styled-components'
-import { MobileMenuTypes } from './menu'
-import { color } from '@/utils/utils'
+import React from "react";
+import styled from "styled-components";
+import { color } from "@/utils/utils";
+import { MobileMenuProps } from "./menu";
 
-const MenuIcon = ({ isShow }: MobileMenuTypes) => {
+export const Wrapper = styled.svg<{
+  show: boolean;
+}>`
+  width: 1.25rem;
+  height: 1.25rem;
+  opacity: ${(props) => (props.show ? "1" : "0")};
+  color: ${color("text")};
+  vertical-align: middle;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  position: absolute;
+  transform: translate(-50%, -50%) scale(${(props) => (props.show ? "1" : "0")});
+  top: 50%;
+  left: 50%;
+`;
+
+function MenuIcon({ isShow }: MobileMenuProps) {
   return (
     <Wrapper
       width="20"
@@ -33,22 +49,7 @@ const MenuIcon = ({ isShow }: MobileMenuTypes) => {
         strokeLinejoin="round"
       />
     </Wrapper>
-  )
+  );
 }
 
-export const Wrapper = styled.svg<{
-  show: boolean
-}>`
-  width: 1.25rem;
-  height: 1.25rem;
-  opacity: ${props => (props.show ? '1' : '0')};
-  color: ${color('text')};
-  vertical-align: middle;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  position: absolute;
-  transform: translate(-50%, -50%) scale(${props => (props.show ? '1' : '0')});
-  top: 50%;
-  left: 50%;
-`
-
-export default MenuIcon
+export default MenuIcon;

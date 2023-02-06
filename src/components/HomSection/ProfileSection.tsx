@@ -1,7 +1,8 @@
-import Link from '../Link/Link'
-import Panel from '../Panel/Panel'
+import React from "react";
+import Link from "../Link/Link";
+import Panel from "../Panel/Panel";
 
-const ProfileSection = () => {
+function ProfileSection() {
   return (
     <Panel title="关于我">
       <ul>
@@ -17,20 +18,31 @@ const ProfileSection = () => {
         <li>天天划水摸鱼，日常重装电脑。</li>
         <li>
           喜欢的游戏有：
-          <Link href="https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Breath_of_the_Wild">
+          <Link
+            href="https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Breath_of_the_Wild"
+            target="_blank"
+          >
             塞尔达传说: 旷野之息
           </Link>
           、
-          <Link href="https://en.wikipedia.org/wiki/Fire_Emblem">火焰纹章</Link>
+          <Link
+            href="https://en.wikipedia.org/wiki/Fire_Emblem"
+            target="_blank"
+          >
+            火焰纹章
+          </Link>
           、
-          <Link href="https://en.wikipedia.org/wiki/Animal_Crossing:_New_Horizons">
+          <Link
+            href="https://en.wikipedia.org/wiki/Animal_Crossing:_New_Horizons"
+            target="_blank"
+          >
             集合啦！动物森友会
           </Link>
           。
         </li>
       </ul>
     </Panel>
-  )
+  );
 }
 
-export default ProfileSection
+export default ProfileSection;
