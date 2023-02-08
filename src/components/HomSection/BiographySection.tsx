@@ -20,6 +20,7 @@ const AuthorImageWrapper = styled.div`
   width: 125px;
   height: 125px;
   position: relative;
+  overflow: hidden;
   margin-left: ${constant("spacing.8")};
 
   @media ${(props) => props.theme.BREAKPOINTS.mdAndSmaller} {
@@ -52,7 +53,7 @@ function BiographySection() {
       <AuthorImageWrapper>
         <AuthorImage
           fill
-          sizes="100vw"
+          sizes="125px"
           alt="use image"
           src={`/image/${Config.avatar}`}
         />

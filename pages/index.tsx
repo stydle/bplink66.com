@@ -1,9 +1,10 @@
-import BlogLayout from '@/layouts/blog'
+import React from "react";
+import BlogLayout from "@/layouts/blog";
 
-import BiographySection from '@/components/HomSection/BiographySection'
-import ProfileSection from '@/components/HomSection/ProfileSection'
-import SkillsSection from '@/components/HomSection/SkillsSection'
-import WorksSection from '@/components/HomSection/WorksSection'
+import BiographySection from "@/components/HomSection/BiographySection";
+import ProfileSection from "@/components/HomSection/ProfileSection";
+import SkillsSection from "@/components/HomSection/SkillsSection";
+import WorksSection from "@/components/HomSection/WorksSection";
 
 function Home() {
   return (
@@ -13,13 +14,13 @@ function Home() {
       <SkillsSection />
       <WorksSection />
     </BlogLayout>
-  )
+  );
 }
 
 export async function getStaticProps() {
   return {
     props: {}
-  }
+  };
 }
 
-export default Home
+export default Home;

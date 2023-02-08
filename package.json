@@ -9,8 +9,8 @@
     "build": "next build",
     "start": "next start",
     "prepare": "husky install",
-    "lint": "eslint 'src/**/*.{ts,tsx}'",
-    "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix"
+    "lint": "eslint '{src,pages}/**/*.{ts,tsx}'",
+    "lint:fix": "eslint '{src,pages}/**/*.{ts,tsx}' --fix"
   },
   "dependencies": {
     "next": "latest",

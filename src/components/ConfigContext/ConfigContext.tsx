@@ -37,7 +37,6 @@ export function ConfigProvider({ children }: ContextProps) {
       if (!allowColorTransitions) {
         setAllowColorTransitions(true);
       }
-
       const root = window.document.documentElement;
 
       rawSetColorMode(value);
@@ -53,7 +52,6 @@ export function ConfigProvider({ children }: ContextProps) {
     const mediaQueryList = window.matchMedia(QUERY);
     const listener = (event) => {
       const isDark = event.matches;
-
       setColorMode(isDark ? "dark" : "light");
     };
 
