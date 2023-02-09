@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  reactStrictMode: false,
+  reactStrictMode: true,
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [{
       protocol: 'https',
-      hostname: 'via.placeholder.com',
+      hostname: 'image.bplink66.com',
     }],
   },
   compiler: {
