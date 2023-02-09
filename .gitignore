@@ -35,12 +35,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-pret.js
-
 # git hooks
 .husky
 
 # vscode
 .vscode
 
+# yarn
 yarn.lock

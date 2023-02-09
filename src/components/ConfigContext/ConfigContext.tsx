@@ -15,7 +15,7 @@ interface ContextProps {
   children: React.ReactNode;
 }
 
-export function ConfigProvider({ children }: ContextProps) {
+export const ConfigProvider = React.memo(({ children }: ContextProps) => {
   const initialColorValue = "light";
   const initialAllowColorTransitions = false;
   const [colorMode, rawSetColorMode] = React.useState(initialColorValue);
@@ -81,4 +81,4 @@ export function ConfigProvider({ children }: ContextProps) {
   return (
     <ContentContext.Provider value={value}>{children}</ContentContext.Provider>
   );
-}
+});
