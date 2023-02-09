@@ -40,6 +40,10 @@ const FooterLogo = styled.div`
   grid-area: logo;
   text-align: center;
   margin-bottom: ${constant("spacing.5")};
+
+  @media ${(p) => p.theme.BREAKPOINTS.mdAndSmaller} {
+    margin-bottom: ${constant("spacing.3")};
+  }
 `;
 
 const GreyLink = styled(UnstyledLink)`

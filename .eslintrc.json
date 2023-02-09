@@ -23,6 +23,7 @@
     "plugin:@typescript-eslint/recommended",
     "airbnb",
     "airbnb-typescript",
+    "airbnb/hooks",
     "plugin:prettier/recommended"
   ],
   "plugins": [

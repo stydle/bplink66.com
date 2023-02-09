@@ -68,7 +68,7 @@ export function ConfigProvider({ children }: ContextProps) {
         mediaQueryList.removeListener(listener);
       }
     };
-  }, []);
+  }, [setColorMode]);
 
   const value = React.useMemo(() => {
     return {
@@ -76,7 +76,7 @@ export function ConfigProvider({ children }: ContextProps) {
       setColorMode,
       allowColorTransitions
     };
-  }, [colorMode, setColorMode, rawSetColorMode, allowColorTransitions]);
+  }, [colorMode, setColorMode, allowColorTransitions]);
 
   return (
     <ContentContext.Provider value={value}>{children}</ContentContext.Provider>
