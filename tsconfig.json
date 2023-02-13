@@ -21,6 +21,10 @@
       ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "./pages/**/*.tsx",
+    "./src/**/*.tsx", "./src/**/*.ts",
+    "./next-env.d.ts"
+  ],
   "exclude": ["node_modules"]
 }
