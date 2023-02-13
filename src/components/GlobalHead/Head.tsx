@@ -14,12 +14,19 @@ interface MetaProps {
   ogImage?: string;
   description?: string;
 }
-function Head({ description, title, ogImage }: MetaProps) {
+
+const defaultProps = {
+  title: GENERIC_TITLE,
+  ogImage: "favicons/og-default.png",
+  description: GENERIC_DESCRIPTION
+};
+
+function Head({ title, ogImage, description }: MetaProps) {
   const router = useRouter();
   const meta = {
-    title: title || GENERIC_TITLE,
-    description: description || GENERIC_DESCRIPTION,
-    image: PROD_URL + (ogImage || "/favicons/og-default.png"),
+    title,
+    description,
+    image: `${PROD_URL}/${ogImage}`,
     type: "website",
     imgWidth: 1280,
     imgHeight: 640
@@ -72,10 +79,6 @@ function Head({ description, title, ogImage }: MetaProps) {
   );
 }
 
-Head.defaultProps = {
-  title: "",
-  ogImage: "",
-  description: ""
-};
+Head.defaultProps = defaultProps;
 
 export default Head;

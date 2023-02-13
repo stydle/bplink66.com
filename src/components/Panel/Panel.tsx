@@ -22,6 +22,11 @@ interface PanelProps {
   children: React.ReactNode;
 }
 
+const defaultProps = {
+  title: "",
+  display: ""
+};
+
 function Panel({ title, display, children }: PanelProps) {
   return (
     <Wrapper display={display}>
@@ -31,10 +36,7 @@ function Panel({ title, display, children }: PanelProps) {
   );
 }
 
-Panel.defaultProps = {
-  title: "",
-  display: ""
-};
+Panel.defaultProps = defaultProps;
 
 export { Wrapper as PanelWrapper };
 export default Panel;

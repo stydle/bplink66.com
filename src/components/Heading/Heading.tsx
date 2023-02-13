@@ -54,6 +54,11 @@ interface HeadingProps {
   children: React.ReactNode;
 }
 
+const defaultProps = {
+  type: "medium-title",
+  renderAs: ""
+};
+
 function Heading({ type, renderAs, children }: HeadingProps) {
   let Component;
 
@@ -72,9 +77,6 @@ function Heading({ type, renderAs, children }: HeadingProps) {
   return <Component as={renderAs}>{children}</Component>;
 }
 
-Heading.defaultProps = {
-  type: "medium-title",
-  renderAs: ""
-};
+Heading.defaultProps = defaultProps;
 
 export default Heading;

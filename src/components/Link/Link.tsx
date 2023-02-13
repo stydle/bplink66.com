@@ -34,6 +34,12 @@ interface LinkProps {
   target?: string;
   children: React.ReactNode;
 }
+
+const defaultProps = {
+  rel: "",
+  target: ""
+};
+
 function Link({ href, target, rel, children }: LinkProps) {
   let linkType;
   let newTarget = target;
@@ -68,9 +74,6 @@ function Link({ href, target, rel, children }: LinkProps) {
   );
 }
 
-Link.defaultProps = {
-  rel: "",
-  target: ""
-};
+Link.defaultProps = defaultProps;
 
 export default Link;
