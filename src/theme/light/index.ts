@@ -1,6 +1,6 @@
-import { ThemeColors } from "@/types/color-vars.d";
+import { ThemeColorTypes } from "@/types/color-vars.d";
 
-const COLORS: ThemeColors = {
+const COLORS: ThemeColorTypes = {
   text: "var(--colors-gray-800)",
   secondaryText: "var(--colors-gray-500)",
   background: "var(--colors-white)",

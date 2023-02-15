@@ -1,4 +1,4 @@
-import { Constants } from "@/types/constants-vars.d";
+import { ConstantTypes } from "@/types/constants-vars.d";
 import { BreakpointSizes, Breakpoints } from "@/types/styled.d";
 
 const ContainerSize: BreakpointSizes = {
@@ -29,7 +29,7 @@ export const BREAKPOINTS: Breakpoints = {
   desktop: `(min-width: ${ContainerSize.md + 1}px)`
 };
 
-const ConstantThemes: Constants = {
+const ConstantThemes: ConstantTypes = {
   body: {
     font: "Helvetica Neue, Helvetica,PingFang SC, Tahoma,Arial, sans-serif",
     size: "16px"

@@ -2,7 +2,7 @@ import React from "react";
 import Link from "../Link/Link";
 import Panel from "../Panel/Panel";
 
-function ProfileSection() {
+export default function ProfileSection() {
   return (
     <Panel title="关于我">
       <ul>
@@ -44,5 +44,3 @@ function ProfileSection() {
     </Panel>
   );
 }
-
-export default ProfileSection;

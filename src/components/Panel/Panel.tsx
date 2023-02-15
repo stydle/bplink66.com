@@ -27,7 +27,7 @@ const defaultProps = {
   display: ""
 };
 
-function Panel({ title, display, children }: PanelProps) {
+export default function Panel({ title, display, children }: PanelProps) {
   return (
     <Wrapper display={display}>
       {title && <Heading type="section-title">{title}</Heading>}
@@ -39,4 +39,3 @@ function Panel({ title, display, children }: PanelProps) {
 Panel.defaultProps = defaultProps;
 
 export { Wrapper as PanelWrapper };
-export default Panel;

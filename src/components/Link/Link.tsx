@@ -40,7 +40,7 @@ const defaultProps = {
   target: ""
 };
 
-function Link({ href, target, rel, children }: LinkProps) {
+export default function Link({ href, target, rel, children }: LinkProps) {
   let linkType;
   let newTarget = target;
 
@@ -75,5 +75,3 @@ function Link({ href, target, rel, children }: LinkProps) {
 }
 
 Link.defaultProps = defaultProps;
-
-export default Link;

@@ -18,7 +18,7 @@ export const Wrapper = styled.svg<{
   left: 50%;
 `;
 
-function MenuIcon({ isShow }: MobileMenuProps) {
+export default function MenuIcon({ isShow }: MobileMenuProps) {
   return (
     <Wrapper
       width="20"
@@ -51,5 +51,3 @@ function MenuIcon({ isShow }: MobileMenuProps) {
     </Wrapper>
   );
 }
-
-export default MenuIcon;

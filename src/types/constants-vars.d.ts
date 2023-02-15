@@ -65,7 +65,7 @@ interface SizesTypes {
   tag: string;
 }
 
-export interface Constants {
+export interface ConstantTypes {
   body: BodyTypes;
   fontWeights: FontWeighTypes;
   fontSizes: FontSizeTypes;

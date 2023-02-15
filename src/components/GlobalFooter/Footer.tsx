@@ -93,7 +93,7 @@ const FooterLegal = styled.div`
   text-align: center;
 `;
 
-function GlobalFooter() {
+export default function GlobalFooter() {
   return (
     <Wrapper>
       <FooterGrid>
@@ -150,5 +150,3 @@ function GlobalFooter() {
     </Wrapper>
   );
 }
-
-export default GlobalFooter;

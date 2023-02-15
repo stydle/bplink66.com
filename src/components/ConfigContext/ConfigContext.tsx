@@ -5,86 +5,93 @@ import {
   PREFERS_THEME_CSS_PROP
 } from "@/constants";
 
+export enum ThemeColors {
+  light = "light",
+  dark = "dark"
+}
+
+const DefaultContext = {
+  colorMode: ThemeColors.light,
+  setColorMode: () => {},
+  allowColorTransitions: false
+};
+
 export const ContentContext = React.createContext<{
-  colorMode: string;
-  setColorMode: (string) => void;
+  colorMode: ThemeColors;
+  setColorMode: (value: ThemeColors) => void;
   allowColorTransitions: boolean;
-} | null>(null);
+}>(DefaultContext);
 
 interface ContextProps {
   children: React.ReactNode;
 }
 
-export const ConfigProvider: React.FC<ContextProps> = React.memo(
-  ({ children }) => {
-    const initialColorValue = "light";
-    const initialAllowColorTransitions = false;
-    const [colorMode, rawSetColorMode] = React.useState(initialColorValue);
-    const [allowColorTransitions, setAllowColorTransitions] = React.useState(
-      initialAllowColorTransitions
-    );
+export function ConfigProvider({ children }: ContextProps) {
+  const {
+    colorMode: initialColorValue,
+    allowColorTransitions: initialAllowColorTransitions
+  } = DefaultContext;
+  const [colorMode, rawSetColorMode] =
+    React.useState<ThemeColors>(initialColorValue);
+  const [allowColorTransitions, setAllowColorTransitions] =
+    React.useState<boolean>(initialAllowColorTransitions);
 
-    React.useEffect(() => {
+  React.useEffect(() => {
+    const root = window.document.documentElement;
+    const localColorValue = root.style.getPropertyValue(PREFERS_THEME_CSS_PROP);
+
+    if (localColorValue !== initialColorValue) {
+      rawSetColorMode(localColorValue as ThemeColors);
+    }
+  }, [initialColorValue]);
+
+  const setColorMode = React.useCallback(
+    (value: ThemeColors) => {
+      if (!allowColorTransitions) {
+        setAllowColorTransitions(true);
+      }
       const root = window.document.documentElement;
-      const localColorValue = root.style.getPropertyValue(
-        PREFERS_THEME_CSS_PROP
-      );
 
-      if (localColorValue !== initialColorValue) {
-        rawSetColorMode(localColorValue);
-      }
-    }, []);
+      rawSetColorMode(value);
+      root.setAttribute(PREFERS_THEME_KEY, value);
+      root.style.setProperty(PREFERS_THEME_CSS_PROP, value);
+      localStorage.setItem(PREFERS_LOCAL_KEY, value);
+    },
+    [allowColorTransitions]
+  );
 
-    const setColorMode = React.useCallback(
-      (value) => {
-        if (!allowColorTransitions) {
-          setAllowColorTransitions(true);
-        }
-        const root = window.document.documentElement;
+  React.useEffect(() => {
+    const QUERY = "(prefers-color-scheme: dark)";
+    const mediaQueryList = window.matchMedia(QUERY);
+    const listener = (event: MediaQueryListEvent) => {
+      const isDark = event.matches;
+      setColorMode(isDark ? ThemeColors.dark : ThemeColors.light);
+    };
 
-        rawSetColorMode(value);
-        root.setAttribute(PREFERS_THEME_KEY, value);
-        root.style.setProperty(PREFERS_THEME_CSS_PROP, value);
-        localStorage.setItem(PREFERS_LOCAL_KEY, value);
-      },
-      [allowColorTransitions]
-    );
+    if (mediaQueryList.addEventListener) {
+      mediaQueryList.addEventListener("change", listener);
+    } else {
+      mediaQueryList.addListener(listener);
+    }
 
-    React.useEffect(() => {
-      const QUERY = "(prefers-color-scheme: dark)";
-      const mediaQueryList = window.matchMedia(QUERY);
-      const listener = (event) => {
-        const isDark = event.matches;
-        setColorMode(isDark ? "dark" : "light");
-      };
-
-      if (mediaQueryList.addEventListener) {
-        mediaQueryList.addEventListener("change", listener);
+    return () => {
+      if (mediaQueryList.removeEventListener) {
+        mediaQueryList.removeEventListener("change", listener);
       } else {
-        mediaQueryList.addListener(listener);
+        mediaQueryList.removeListener(listener);
       }
+    };
+  }, [setColorMode]);
 
-      return () => {
-        if (mediaQueryList.removeEventListener) {
-          mediaQueryList.removeEventListener("change", listener);
-        } else {
-          mediaQueryList.removeListener(listener);
-        }
-      };
-    }, [setColorMode]);
+  const value = React.useMemo(() => {
+    return {
+      colorMode,
+      setColorMode,
+      allowColorTransitions
+    };
+  }, [colorMode, setColorMode, allowColorTransitions]);
 
-    const value = React.useMemo(() => {
-      return {
-        colorMode,
-        setColorMode,
-        allowColorTransitions
-      };
-    }, [colorMode, setColorMode, allowColorTransitions]);
-
-    return (
-      <ContentContext.Provider value={value}>
-        {children}
-      </ContentContext.Provider>
-    );
-  }
-);
+  return (
+    <ContentContext.Provider value={value}>{children}</ContentContext.Provider>
+  );
+}

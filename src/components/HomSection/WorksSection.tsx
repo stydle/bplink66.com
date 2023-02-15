@@ -57,7 +57,7 @@ const CardFooter = styled.div`
   }
 `;
 
-function WorksSection() {
+export default function WorksSection() {
   return (
     <Panel title="作品集">
       <WorksWrapper>
@@ -89,5 +89,3 @@ function WorksSection() {
     </Panel>
   );
 }
-
-export default WorksSection;

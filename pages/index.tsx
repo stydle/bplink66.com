@@ -6,7 +6,7 @@ import ProfileSection from "@/components/HomSection/ProfileSection";
 import SkillsSection from "@/components/HomSection/SkillsSection";
 import WorksSection from "@/components/HomSection/WorksSection";
 
-function Home() {
+export default function Home() {
   return (
     <BlogLayout>
       <BiographySection />
@@ -22,5 +22,3 @@ export async function getStaticProps() {
     props: {}
   };
 }
-
-export default Home;

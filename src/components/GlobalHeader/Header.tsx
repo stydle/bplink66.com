@@ -3,7 +3,7 @@ import styled from "styled-components";
 import NextLink from "next/link";
 
 import { color, constant } from "@/utils/utils";
-import { ContentContext } from "../ConfigContext/ConfigContext";
+import { ThemeColors, ContentContext } from "../ConfigContext/ConfigContext";
 import MobileMenu from "../MobileMenu/MobileMenu";
 import UnstyledButton from "../UnstyledButton/UnstyledButton";
 import MaxWidthWrapper from "../MaxWidthWrapper/MaxWidthWrapper";
@@ -70,15 +70,14 @@ const ThemeWrapper = styled.svg`
   height: 1.15rem;
 `;
 
-function GlobalHeader() {
+export default function GlobalHeader() {
   const { colorMode, setColorMode } = useContext(ContentContext);
   const [mounted, setMounted] = useState(false);
 
   const isDark = colorMode === "dark";
 
-  const toggleColorMode = (event) => {
-    event.preventDefault();
-    setColorMode(isDark ? "light" : "dark");
+  const toggleColorMode = () => {
+    setColorMode(isDark ? ThemeColors.light : ThemeColors.dark);
   };
 
   useEffect(() => {
@@ -124,5 +123,3 @@ function GlobalHeader() {
     </Wrapper>
   );
 }
-
-export default GlobalHeader;

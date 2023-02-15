@@ -48,6 +48,10 @@ const SmallTitle = styled.h3`
   font-size: calc(18 / 16 * 1rem);
 `;
 
+interface ComponentProps {
+  as?: string;
+  children: React.ReactNode;
+}
 interface HeadingProps {
   type?: string;
   renderAs?: string;
@@ -59,24 +63,27 @@ const defaultProps = {
   renderAs: ""
 };
 
-function Heading({ type, renderAs, children }: HeadingProps) {
-  let Component;
+export default function Heading({ type, renderAs, children }: HeadingProps) {
+  let Component: React.FC<ComponentProps>;
 
-  if (type === "small-title") {
-    Component = SmallTitle;
-  } else if (type === "medium-title") {
-    Component = MediumTitle;
-  } else if (type === "large-title") {
-    Component = LargeTitle;
-  } else if (type === "section-title") {
-    Component = SectionTitle;
-  } else {
-    throw new Error(`Unrecognized Heading type: ${type}`);
+  switch (type) {
+    case "small-title":
+      Component = SmallTitle;
+      break;
+    case "medium-title":
+      Component = MediumTitle;
+      break;
+    case "large-title":
+      Component = LargeTitle;
+      break;
+    case "section-title":
+      Component = SectionTitle;
+      break;
+    default:
+      throw new Error(`Unrecognized Heading type: ${type}`);
   }
 
   return <Component as={renderAs}>{children}</Component>;
 }
 
 Heading.defaultProps = defaultProps;
-
-export default Heading;

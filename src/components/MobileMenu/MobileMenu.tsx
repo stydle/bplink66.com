@@ -53,7 +53,7 @@ const MobileMenuLink = styled(NextLink)`
   padding: ${constant("spacing.2")} ${constant("spacing.1")};
 `;
 
-function MobileMenu() {
+export default function MobileMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -93,5 +93,3 @@ function MobileMenu() {
     </Wrapper>
   );
 }
-
-export default MobileMenu;

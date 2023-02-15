@@ -43,7 +43,7 @@ const AuthorParagraph = styled.p`
   margin: ${constant("spacing.2")} 0;
 `;
 
-function BiographySection() {
+export default function BiographySection() {
   return (
     <Wrapper display="flex">
       <AuthContentWrapper>
@@ -61,5 +61,3 @@ function BiographySection() {
     </Wrapper>
   );
 }
-
-export default BiographySection;

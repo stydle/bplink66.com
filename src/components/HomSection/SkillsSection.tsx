@@ -40,7 +40,7 @@ const CardContent = styled.div`
   text-align: center;
 `;
 
-function SkillsSection() {
+export default function SkillsSection() {
   return (
     <Panel title="技能树">
       <SkillsWrapper>
@@ -62,5 +62,3 @@ function SkillsSection() {
     </Panel>
   );
 }
-
-export default SkillsSection;

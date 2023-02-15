@@ -2,7 +2,7 @@ import React from "react";
 import { Wrapper } from "./MenuIcon";
 import { MobileMenuProps } from "./menu";
 
-function CrossIcon({ isShow }: MobileMenuProps) {
+export default function CrossIcon({ isShow }: MobileMenuProps) {
   return (
     <Wrapper
       width="24"
@@ -21,5 +21,3 @@ function CrossIcon({ isShow }: MobileMenuProps) {
     </Wrapper>
   );
 }
-
-export default CrossIcon;

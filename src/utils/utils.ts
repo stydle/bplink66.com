@@ -1,39 +1,37 @@
-import { CSS_COLORS_PREFIX, CSS_CONSTANT_PREFIX } from "@/constants";
+import { CSS_COLORS_PREFIX, CSS_PREFIX } from "@/constants";
+import { ConstantTypes } from "@/types/constants-vars.d";
+import { ColorTypes, ThemeColorTypes } from "@/types/color-vars.d";
+
+const getColorsVarsByKey = (colorKey: string, prefix = ""): string =>
+  colorKey.split(".").reduce((acc, key) => `${acc}-${key}`, prefix);
 
 export const color = (colorKey = "") => {
-  const cssVar = colorKey
-    .split(".")
-    .reduce((acc, key) => `${acc}-${key}`, CSS_COLORS_PREFIX);
+  const cssVar = getColorsVarsByKey(
+    colorKey,
+    `${CSS_PREFIX}${CSS_COLORS_PREFIX}`
+  );
 
   return `var(${cssVar})`;
 };
 
-export const constant = (colorKey: string) => {
-  const constantVar = colorKey
-    .split(".")
-    .reduce((acc, key) => `${acc}-${key}`, CSS_CONSTANT_PREFIX);
+export const constant = (colorKey = "") => {
+  const constantVar = getColorsVarsByKey(colorKey, "-");
 
   return `var(${constantVar})`;
 };
 
-const createCssVar = (before = "--") => {
-  const transformCssVars: (items: unknown, prefix?: string) => string[] = (
-    items,
-    prefix = "-"
-  ) =>
-    Object.entries(items).flatMap(([key, value]) => {
-      const varName = `${prefix}${key}`;
+const transformCssVars = (items: object, prefix = ""): string[] => {
+  return Object.entries(items).flatMap(([key, value]) => {
+    const varName = `${prefix}${key}`;
 
-      if (typeof value === "object")
-        return transformCssVars(value, `${varName}-`);
-      return `${before}${varName}:${value}`;
-    });
+    if (typeof value === "object")
+      return transformCssVars(value, `${varName}-`);
 
-  return transformCssVars;
+    return `${CSS_PREFIX}${varName}:${value}`;
+  });
 };
 
-export const createCssVars: (
-  themeColors: unknown,
-  before?: string
-) => string = (themeColors, before = "--") =>
-  createCssVar(before)(themeColors).join(";");
+export const createCssVars = (
+  themeColors: ConstantTypes | ColorTypes | ThemeColorTypes,
+  prefix = ""
+): string => transformCssVars(themeColors, prefix).join(";");

@@ -1,8 +1,8 @@
 import DarkThemes from "./dark";
 import LightThemes from "./light";
-import { Colors } from "../types/color-vars";
+import { ColorTypes } from "../types/color-vars";
 
-const ColorThemes: Colors = {
+const ColorThemes: ColorTypes = {
   white: "#FFFFFF",
   black: "#000000",
   transparent: "transparent",

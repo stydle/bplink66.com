@@ -6,12 +6,10 @@ interface ThemeProps {
   children: React.ReactNode;
 }
 
-function ThemeProvide({ children }: ThemeProps) {
+export default function ThemeProvide({ children }: ThemeProps) {
   const theme: DefaultTheme = {
     BREAKPOINTS
   };
 
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 }
-
-export default ThemeProvide;

@@ -21,7 +21,7 @@ const defaultProps = {
   description: GENERIC_DESCRIPTION
 };
 
-function Head({ title, ogImage, description }: MetaProps) {
+export default function Head({ title, ogImage, description }: MetaProps) {
   const router = useRouter();
   const meta = {
     title,
@@ -80,5 +80,3 @@ function Head({ title, ogImage, description }: MetaProps) {
 }
 
 Head.defaultProps = defaultProps;
-
-export default Head;

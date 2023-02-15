@@ -11,7 +11,7 @@ interface ColorModular {
   900: string;
 }
 
-export interface ThemeColors {
+export interface ThemeColorTypes {
   // text
   text: string;
   secondaryText: string;
@@ -37,7 +37,7 @@ export interface ThemeColors {
   };
 }
 
-export interface Colors {
+export interface ColorTypes {
   white: string;
   black: string;
   transparent: string;
