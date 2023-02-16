@@ -38,11 +38,12 @@ export default function Head({ title, ogImage, description }: MetaProps) {
       canonical="https://www.bplink66.com/"
       openGraph={{
         title: pageTitle,
+        type: "website",
         description: Config.describe,
         url: "https://www.bplink66.com/",
         images: [
           {
-            url: "/favicons/og-default.png",
+            url: "https://www.joshwcomeau.com/images/og-default.png",
             width: meta.imgWidth,
             height: meta.imgHeight,
             alt: "Photo of text"
