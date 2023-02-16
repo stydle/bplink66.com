@@ -1,6 +1,7 @@
 import React from "react";
+import NextHead from "next/head";
+import { useRouter } from "next/router";
 import Config from "@/config/config";
-import { NextSeo } from "next-seo";
 
 const GENERIC_TITLE = `${Config.name}'s portal site`;
 const GENERIC_DESCRIPTION =
@@ -20,68 +21,64 @@ const defaultProps = {
   description: GENERIC_DESCRIPTION
 };
 
-export default function Head({ title, ogImage, description }: MetaProps) {
+function Head({ title, ogImage, description }: MetaProps) {
+  const router = useRouter();
   const meta = {
     title,
     description,
     image: `${PROD_URL}/${ogImage}`,
     type: "website",
-    imgWidth: 850,
-    imgHeight: 650
+    imgWidth: 1280,
+    imgHeight: 640
   };
-  const pageTitle = "stydle";
 
   return (
-    <NextSeo
-      title={pageTitle}
-      description={meta.description}
-      canonical="https://www.bplink66.com/"
-      openGraph={{
-        title: pageTitle,
-        type: "website",
-        description: Config.describe,
-        url: "https://www.bplink66.com/",
-        images: [
-          {
-            url: "https://www.joshwcomeau.com/images/og-default.png",
-            width: meta.imgWidth,
-            height: meta.imgHeight,
-            alt: "Photo of text"
-          }
-        ]
-      }}
-      twitter={{
-        handle: "@stydle06",
-        site: "@stydle06",
-        cardType: "summary_large_image"
-      }}
-      additionalLinkTags={[
-        {
-          rel: "shortcut icon",
-          href: "/favicons/favicon.ico"
-        },
-        {
-          rel: "icon",
-          href: "/favicons/favicon-32x32.ico",
-          sizes: "32x32"
-        },
-        {
-          rel: "apple-touch-icon",
-          href: "/favicons/apple-touch-icon.png",
-          sizes: "180x180"
-        },
-        {
-          rel: "manifest",
-          href: "/favicons/manifest.json"
-        },
-        {
-          rel: "mask-icon",
-          href: "/favicons/safari-pinned-tab.svg",
-          color: "#5bbad5"
-        }
-      ]}
-    />
+    <NextHead>
+      <title>{meta.title}</title>
+
+      <meta charSet="utf-8" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+      />
+      <meta name="description" content={meta.description} />
+      <meta httpEquiv="x-ua-compatible" content="ie=edge" />
+      <meta name="theme-color" content="hsl(204deg, 67%, 85%)" />
+
+      {/* og-card */}
+      <meta property="og:url" content={`${PROD_URL}${router.asPath}`} />
+      <meta property="og:title" content={meta.title} />
+      <meta property="og:site_name" content={title} />
+      <meta property="og:description" content={meta.description} />
+      <meta property="og:type" content="website" />
+      <meta property="og:image" content={meta.image} />
+      <meta property="og:image:width" content={`${meta.imgWidth}`} />
+      <meta property="og:image:height" content={`${meta.imgHeight}`} />
+
+      <link rel="shortcut icon" href="/favicons/favicon.ico" />
+      <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="/favicons/apple-touch-icon.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="/favicons/favicon-32x32.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="/favicons/favicon-16x16.png"
+      />
+
+      <link rel="canonical" href={`${PROD_URL}${router.asPath}`} />
+    </NextHead>
   );
 }
 
 Head.defaultProps = defaultProps;
+
+export default Head;
