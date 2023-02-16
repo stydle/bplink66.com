@@ -28,7 +28,7 @@ interface BlogProps {
   children: React.ReactNode;
 }
 
-function BlogLayout({ children }: BlogProps) {
+export default function BlogLayout({ children }: BlogProps) {
   return (
     <Wrapper>
       <Head />
@@ -40,5 +40,3 @@ function BlogLayout({ children }: BlogProps) {
     </Wrapper>
   );
 }
-
-export default BlogLayout;

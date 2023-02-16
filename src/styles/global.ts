@@ -6,7 +6,6 @@ const GlobalStyles = css`
   *,
   *::before,
   *::after {
-    box-sizing: border-box;
     border-width: 0;
     border-style: solid;
     word-wrap: break-word;
