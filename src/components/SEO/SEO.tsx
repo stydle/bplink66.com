@@ -3,25 +3,25 @@ import { NextSeo } from "next-seo";
 import SEO from "@/contents/settings/seo.json";
 
 interface SEOProps {
-  title?: string;
+  pageTitle?: string;
   seoTitle?: string;
   description?: string;
 }
 
 const defaultProps = {
-  title: SEO.title,
-  seoTitle: SEO.title,
+  pageTitle: SEO.title,
+  seoTitle: "",
   description: SEO.description
 };
 
-export default function Head({ title, seoTitle, description }: SEOProps) {
+export default function Head({ pageTitle, seoTitle, description }: SEOProps) {
   return (
     <NextSeo
-      title={title}
+      title={pageTitle}
       description={description}
       canonical={SEO.url}
       openGraph={{
-        title: seoTitle,
+        title: seoTitle || pageTitle,
         type: "website",
         description,
         url: SEO.url,
@@ -39,7 +39,7 @@ export default function Head({ title, seoTitle, description }: SEOProps) {
         },
         {
           rel: "icon",
-          href: "/favicons/favicon-32x32.ico",
+          href: "/favicons/favicon-32x32.png",
           sizes: "32x32"
         },
         {
