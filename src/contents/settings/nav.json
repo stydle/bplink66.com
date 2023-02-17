@@ -1,0 +1,10 @@
+{
+  "main": [
+    {
+      "id": "001",
+      "title": "个人博客",
+      "path": "https://blog.bplink66.com",
+      "target": "_blank"
+    }
+  ]
+}

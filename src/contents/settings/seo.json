@@ -1,0 +1,18 @@
+{
+  "logo": "/image/avatar.png",
+  "url": "https://www.bplink66.com",
+  "twitter": "@stydle06",
+  "title": "stydle",
+  "description": "您好，来自远方的朋友，很高兴与您在这里的相遇。这是一位菜鸡开发者的小站，日常主业写 Bug，副业 Debug，拥有这把代码越写越渣的能力。",
+  "facebook": {
+    "appId": "1131429784200512"
+  },
+  "images": [
+    {
+      "url": "/favicons/og-default.png",
+      "width": 850,
+      "height": 650,
+      "alt": "bplink66.com Front cover"
+    }
+  ]
+}
