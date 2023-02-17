@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-import Head from "@/components/GlobalHead/Head";
-import GlobalHeader from "@/components/GlobalHeader/Header";
+import SEO from "@/components/SEO/SEO";
+import Header from "@/components/Header/Header";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper/MaxWidthWrapper";
-import Footer from "@/components/GlobalFooter/Footer";
+import Footer from "@/components/Footer/Footer";
 import { color, constant } from "@/utils/utils";
 
 const Wrapper = styled.div`
@@ -31,8 +31,8 @@ interface BlogProps {
 export default function BlogLayout({ children }: BlogProps) {
   return (
     <Wrapper>
-      <Head />
-      <GlobalHeader />
+      <SEO />
+      <Header />
       <Main>
         <MaxWidthWrapper>{children}</MaxWidthWrapper>
       </Main>

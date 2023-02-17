@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import NextLink from "next/link";
 import { color, constant } from "@/utils/utils";
+import Nav from "@/contents/settings/nav.json";
 import MenuIcon from "./MenuIcon";
 import CrossIcon from "./CrossIcon";
 import UnstyledButton from "../UnstyledButton/UnstyledButton";
@@ -82,11 +83,13 @@ export default function MobileMenu() {
       {isMenuOpen && (
         <MobileMenuWrapper>
           <MobileMenuList>
-            <MobileMenuItem>
-              <MobileMenuLink href="https://blog.bplink66.com" target="target">
-                个人博客
-              </MobileMenuLink>
-            </MobileMenuItem>
+            {Nav.main.map((item) => (
+              <MobileMenuItem key={item.id}>
+                <MobileMenuLink href={item.path} target={item.target || ""}>
+                  {item.title}
+                </MobileMenuLink>
+              </MobileMenuItem>
+            ))}
           </MobileMenuList>
         </MobileMenuWrapper>
       )}

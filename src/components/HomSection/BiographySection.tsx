@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import Image from "next/image";
-import Config from "@/config/config";
+import SEO from "@/contents/settings/seo.json";
 import { constant } from "@/utils/utils";
 import Heading from "../Heading/Heading";
 import { PanelWrapper } from "../Panel/Panel";
@@ -47,16 +47,11 @@ export default function BiographySection() {
   return (
     <Wrapper display="flex">
       <AuthContentWrapper>
-        <Heading type="large-title">{Config.name}</Heading>
-        <AuthorParagraph>{Config.describe}</AuthorParagraph>
+        <Heading type="large-title">{SEO.title}</Heading>
+        <AuthorParagraph>{SEO.description}</AuthorParagraph>
       </AuthContentWrapper>
       <AuthorImageWrapper>
-        <AuthorImage
-          fill
-          sizes="125px"
-          alt="use image"
-          src={`/image/${Config.avatar}`}
-        />
+        <AuthorImage fill sizes="125px" alt="use author image" src={SEO.logo} />
       </AuthorImageWrapper>
     </Wrapper>
   );
