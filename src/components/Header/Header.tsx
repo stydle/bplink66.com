@@ -3,7 +3,7 @@ import styled from "styled-components";
 import NextLink from "next/link";
 
 import { color, constant } from "@/utils/utils";
-import Nav from "@/contents/settings/nav.json";
+import Nav from "@/content/settings/nav.json";
 import { ThemeColors, ContentContext } from "../ConfigContext/ConfigContext";
 import MobileMenu from "../MobileMenu/MobileMenu";
 import UnstyledButton from "../UnstyledButton/UnstyledButton";

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import Image from "next/image";
-import { works } from "@/contents/work";
+import { works } from "@/content/work";
 import Tag from "@/components/Tag/Tag";
 import Heading from "@/components/Heading/Heading";
 import { color, constant } from "@/utils/utils";

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import Image from "next/image";
-import SEO from "@/contents/settings/seo.json";
+import SEO from "@/content/settings/seo.json";
 import { constant } from "@/utils/utils";
 import Heading from "../Heading/Heading";
 import { PanelWrapper } from "../Panel/Panel";

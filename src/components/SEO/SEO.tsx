@@ -1,31 +1,48 @@
 import React from "react";
 import { NextSeo } from "next-seo";
-import SEO from "@/contents/settings/seo.json";
+import SEO from "@/content/settings/seo.json";
 
 interface SEOProps {
   pageTitle?: string;
   seoTitle?: string;
   description?: string;
+  url?: string;
+  image?: string;
 }
 
 const defaultProps = {
   pageTitle: SEO.title,
   seoTitle: "",
-  description: SEO.description
+  description: SEO.description,
+  url: SEO.url,
+  image: ""
 };
 
-export default function Head({ pageTitle, seoTitle, description }: SEOProps) {
+export default function Head({
+  pageTitle,
+  seoTitle,
+  description,
+  url,
+  image
+}: SEOProps) {
   return (
     <NextSeo
       title={pageTitle}
       description={description}
-      canonical={SEO.url}
+      canonical={url}
       openGraph={{
         title: seoTitle || pageTitle,
         type: "website",
         description,
-        url: SEO.url,
-        images: SEO.images
+        url,
+        images: [
+          {
+            url: image || SEO.image.url,
+            width: SEO.image.width,
+            height: SEO.image.height,
+            alt: pageTitle
+          }
+        ]
       }}
       twitter={{
         handle: SEO.twitter,
@@ -57,9 +74,6 @@ export default function Head({ pageTitle, seoTitle, description }: SEOProps) {
           color: "#5bbad5"
         }
       ]}
-      facebook={{
-        appId: SEO.facebook.appId
-      }}
     />
   );
 }

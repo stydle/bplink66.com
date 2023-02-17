@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import Image from "next/image";
-import { skills } from "@/contents/skill";
+import { skills } from "@/content/skill";
 import Heading from "@/components/Heading/Heading";
 import { constant } from "@/utils/utils";
 import Card from "../Card/Card";

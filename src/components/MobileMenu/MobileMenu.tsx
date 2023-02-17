@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import NextLink from "next/link";
 import { color, constant } from "@/utils/utils";
-import Nav from "@/contents/settings/nav.json";
+import Nav from "@/content/settings/nav.json";
 import MenuIcon from "./MenuIcon";
 import CrossIcon from "./CrossIcon";
 import UnstyledButton from "../UnstyledButton/UnstyledButton";

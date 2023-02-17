@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import SEO from "@/contents/settings/seo.json";
+import SEO from "@/content/settings/seo.json";
 import { color, constant } from "@/utils/utils";
 
 import MaxWidthWrapper from "@/components/MaxWidthWrapper/MaxWidthWrapper";
